@@ -1,6 +1,4 @@
 #pragma once
-#include <memory>
-
 #include "../HiveCore/Core.h"
 #include <spdlog/spdlog.h>
 

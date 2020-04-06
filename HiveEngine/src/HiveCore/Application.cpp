@@ -1,3 +1,4 @@
+#include "HivePCH.h"
 #include "Application.h"
 
 namespace Hive {
