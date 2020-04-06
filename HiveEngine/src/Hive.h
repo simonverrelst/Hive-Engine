@@ -1,7 +1,11 @@
 #pragma once
 
-// Used by hive application
+// Used by hive game
 
-#include "Hive/Core.h"
-#include "Hive/Application.h"
-#include "Hive/EntryPoint.h"
+#include "HiveCore/Core.h"
+#include "HiveCore/Application.h"
+#include "HiveHelpers/Logger.h"
+
+// ENTRY POINT -----------------
+#include "HiveCore/EntryPoint.h"
+//------------------------------
