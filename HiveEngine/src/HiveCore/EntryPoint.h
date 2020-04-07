@@ -3,10 +3,11 @@
 
 extern Hive::Application* Hive::CreateApplication();
 
+#undef main 
 int main(int argc, char** argv) 
 {
-	argc = 0;
-	argv = nullptr;
+	(void)argc;
+	(void)argv;
 
 	Hive::Logger::Init();
 
@@ -14,6 +15,7 @@ int main(int argc, char** argv)
 	auto app = Hive::CreateApplication();
 	app->Run();
 	delete app;
+
 }
 
 #endif

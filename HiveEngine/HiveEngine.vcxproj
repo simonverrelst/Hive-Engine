@@ -24,7 +24,10 @@
     <ClInclude Include="src\HiveCore\Application.h" />
     <ClInclude Include="src\HiveCore\Core.h" />
     <ClInclude Include="src\HiveCore\EntryPoint.h" />
+    <ClInclude Include="src\HiveHelpers\Singleton.h" />
     <ClInclude Include="src\HivePCH.h" />
+    <ClInclude Include="src\HiveHelpers\Time.h" />
+    <ClInclude Include="src\HiveRender\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\HiveHelpers\Logger.cpp" />
@@ -35,6 +38,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\HiveHelpers\Time.cpp" />
+    <ClCompile Include="src\HiveRender\Renderer.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -124,6 +129,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)HiveEngine\lib\SDL2\$(PlatformShortName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;xinput.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy /Y "$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\$(ProjectName).dll" "$(SolutionDir)bin\$(Configuration)-$(Platform)\HiveGame\$(ProjectName).dll"</Command>
@@ -147,6 +154,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)HiveEngine\lib\SDL2\$(PlatformShortName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;xinput.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>
@@ -176,6 +185,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)HiveEngine\lib\SDL2\$(PlatformShortName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;xinput.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy /Y "$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\$(ProjectName).dll" "$(SolutionDir)bin\$(Configuration)-$(Platform)\HiveGame\$(ProjectName).dll"</Command>
@@ -202,6 +213,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)HiveEngine\lib\SDL2\$(PlatformShortName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;xinput.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy /Y "$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\$(ProjectName).dll" "$(SolutionDir)bin\$(Configuration)-$(Platform)\HiveGame\$(ProjectName).dll"</Command>

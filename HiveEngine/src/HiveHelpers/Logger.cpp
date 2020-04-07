@@ -2,6 +2,7 @@
 #include "Logger.h"
 #include <spdlog/sinks/stdout_color_sinks.h>
 
+
 namespace Hive
 {
 	std::shared_ptr<spdlog::logger> Logger::pEngineLogger = nullptr;

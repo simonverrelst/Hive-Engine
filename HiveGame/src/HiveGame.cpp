@@ -10,6 +10,12 @@ public:
 
 	}
 
+
+	virtual void Start() override
+	{
+	
+	}
+
 };
 
 Hive::Application* Hive::CreateApplication() {
