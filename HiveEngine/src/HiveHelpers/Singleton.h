@@ -2,7 +2,7 @@
 #include "HiveCore/Core.h"
 namespace Hive {
 	template <typename T>
-	class HIVEAPI Singleton
+	class  Singleton
 	{
 	public:
 		static T& GetInstance()

@@ -3,6 +3,8 @@
 #include "HiveHelpers/Time.h"
 #include "HiveRender/Renderer.h"
 #include "HiveHelpers/Logger.h"
+#include "HiveInput/InputManager.h"
+#include "HiveScene/SceneManager.h"
 
 namespace Hive {
 
@@ -32,8 +34,8 @@ namespace Hive {
 			"Hive Engine",
 			SDL_WINDOWPOS_UNDEFINED,
 			SDL_WINDOWPOS_UNDEFINED,
-			640,
-			480,
+			1280,
+			720,
 			SDL_WINDOW_OPENGL
 		);
 		if (m_Window == nullptr)
@@ -51,12 +53,10 @@ namespace Hive {
 
 			HandleEvent();
 
-			HandleInput();
+			InternalUpdate();
 
-			Update();
 
-			Renderer::GetInstance().Render();
-			Render();
+			InternalRender();
 
 		}
 
@@ -76,14 +76,19 @@ namespace Hive {
 			break;
 		}
 	}
-	void Application::HandleInput()
-	{
-	}
-	void Application::Update()
-	{
-	}
-	void Application::Render()
+
+	void Application::InternalUpdate()
 	{
 
+		SceneManager::GetInstance().Update();
+
+		Update();
+	}
+	void Application::InternalRender()
+	{
+
+
+		Renderer::GetInstance().Render();
+		Render();
 	}
 }

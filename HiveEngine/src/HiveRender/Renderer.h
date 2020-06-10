@@ -10,7 +10,7 @@ struct SDL_Renderer;
  */
 namespace Hive
 {
-	class HIVEAPI Renderer final : public Singleton<Renderer>
+	class  Renderer final : public Singleton<Renderer>
 	{
 	public:
 		void Init(SDL_Window * window);

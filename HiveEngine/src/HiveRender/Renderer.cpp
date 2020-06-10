@@ -1,6 +1,6 @@
 #include "HivePCH.h"
 #include "Renderer.h"
-//#include "SceneManager.h"
+#include "HiveScene/SceneManager.h"
 //#include "Texture2D.h"
 
 namespace Hive 
@@ -20,7 +20,7 @@ namespace Hive
 		SDL_RenderClear(m_Renderer);
 
 
-		//SceneManager::GetInstance().Render();
+		SceneManager::GetInstance().Render();
 
 		SDL_RenderPresent(m_Renderer);
 	}

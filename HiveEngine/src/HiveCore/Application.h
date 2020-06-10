@@ -4,7 +4,7 @@
 #include <SDL2/SDL.h>
 namespace Hive {
 
-	class HIVEAPI Application
+	class  Application
 	{
 	public:
 		Application();
@@ -13,19 +13,21 @@ namespace Hive {
 		void Init();
 
 		virtual void Start() = 0;
+		virtual void Update() = 0;
+		virtual void Render() = 0;
 
 		void Run();
 
 		void HandleEvent();
 
-		void HandleInput();
+		void InternalUpdate();
+		void InternalRender();
 
-		void Update();
 
-		void Render();
 	private:
 		bool EngineRunning;
 		SDL_Window* m_Window;
+	
 	};
 
 	Application* CreateApplication();

@@ -5,7 +5,7 @@
 
 namespace Hive 
 {
-	class HIVEAPI Time final : public Singleton<Time>
+	class  Time final : public Singleton<Time>
 	{
 
 	public:

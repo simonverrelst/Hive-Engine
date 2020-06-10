@@ -6,7 +6,7 @@
 
 namespace Hive
 {
-	class HIVEAPI Logger
+	class  Logger
 	{
 	public:
 		static void Init();
@@ -21,10 +21,10 @@ namespace Hive
 }
 
 //APP LOG MACROS
-#define LOG_ERROR(...)  ::Hive::Logger::GetEngineLogger()->error(__VA_ARGS__)
-#define LOG_WARN(...)   ::Hive::Logger::GetEngineLogger()->warn(__VA_ARGS__)
-#define LOG_INFO(...)   ::Hive::Logger::GetEngineLogger()->info(__VA_ARGS__)
-#define LOG_TRACE(...)  ::Hive::Logger::GetEngineLogger()->trace(__VA_ARGS__)
+#define LOG_ERROR(...)  ::Hive::Logger::GetAppLogger()->error(__VA_ARGS__)
+#define LOG_WARN(...)   ::Hive::Logger::GetAppLogger()->warn(__VA_ARGS__)
+#define LOG_INFO(...)   ::Hive::Logger::GetAppLogger()->info(__VA_ARGS__)
+#define LOG_TRACE(...)  ::Hive::Logger::GetAppLogger()->trace(__VA_ARGS__)
 
 // ENGINE LOG MACROS
 #define LOG_ENGINE_ERROR(...) ::Hive::Logger::GetEngineLogger()->error(__VA_ARGS__)

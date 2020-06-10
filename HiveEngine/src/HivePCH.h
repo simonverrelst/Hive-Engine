@@ -15,6 +15,13 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_syswm.h>
 
+
+
+
+
 #ifdef HV_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif
+
+// #include "HiveComponents/Component.h"
+//#include "HiveComponents/TransformComponent.h"
