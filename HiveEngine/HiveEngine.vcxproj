@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\HiveComponents\SpriteComponent.h" />
+    <ClInclude Include="src\HiveComponents\TextComponent.h" />
+    <ClInclude Include="src\HiveHelpers\ResourceManager.h" />
     <ClInclude Include="src\HiveInput\InputManager.h" />
     <ClInclude Include="src\HiveComponents\Component.h" />
     <ClInclude Include="src\HiveComponents\TransformComponent.h" />
@@ -30,12 +33,17 @@
     <ClInclude Include="src\HiveHelpers\Singleton.h" />
     <ClInclude Include="src\HivePCH.h" />
     <ClInclude Include="src\HiveHelpers\Time.h" />
+    <ClInclude Include="src\HiveRender\Font.h" />
     <ClInclude Include="src\HiveRender\Renderer.h" />
+    <ClInclude Include="src\HiveRender\Texture2D.h" />
     <ClInclude Include="src\HiveScene\GameObject.h" />
     <ClInclude Include="src\HiveScene\Scene.h" />
     <ClInclude Include="src\HiveScene\SceneManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\HiveComponents\SpriteComponent.cpp" />
+    <ClCompile Include="src\HiveComponents\TextComponent.cpp" />
+    <ClCompile Include="src\HiveHelpers\ResourceManager.cpp" />
     <ClCompile Include="src\HiveInput\InputManager.cpp" />
     <ClCompile Include="src\HiveComponents\Component.cpp" />
     <ClCompile Include="src\HiveComponents\TransformComponent.cpp" />
@@ -48,7 +56,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\HiveHelpers\Time.cpp" />
+    <ClCompile Include="src\HiveRender\Font.cpp" />
     <ClCompile Include="src\HiveRender\Renderer.cpp" />
+    <ClCompile Include="src\HiveRender\Texture2D.cpp" />
     <ClCompile Include="src\HiveScene\GameObject.cpp" />
     <ClCompile Include="src\HiveScene\Scene.cpp" />
     <ClCompile Include="src\HiveScene\SceneManager.cpp" />
