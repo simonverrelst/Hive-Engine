@@ -5,6 +5,16 @@
 
 namespace Hive
 {
+	GameObject::GameObject()
+		:m_Transform{}
+	{
+
+	}
+
+	GameObject::~GameObject()
+	{
+	}
+
 	void GameObject::AddComponent(Component* comp)
 	{
 		comp->gameObject = this;
@@ -31,14 +41,28 @@ namespace Hive
 	}
 
 
-	GameObject::GameObject()
-		:m_Transform{}
+	void GameObject::OnTriggerEnter2D(const Collision& trigger)
 	{
-
+		for (Component* component : m_Components)
+			component->OnTriggerEnter2D(trigger);
 	}
 
-	GameObject::~GameObject()
+	void GameObject::OnTriggerExit2D(const Collision& trigger)
 	{
+		for (Component* component : m_Components)
+			component->OnTriggerExit2D(trigger);
+	}
+
+	void GameObject::OnCollisionEnter2D(const Collision& collision)
+	{
+		for (Component* component : m_Components)
+			component->OnCollisionEnter2D(collision);
+	}
+
+	void GameObject::OnCollisionExit2D(const Collision& collision)
+	{
+		for (Component* component : m_Components)
+			component->OnCollisionExit2D(collision);
 	}
 }
 

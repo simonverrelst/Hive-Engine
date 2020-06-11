@@ -1,8 +1,9 @@
 #pragma once
-
+#include "HiveHelpers/Structs.h"
 
 namespace Hive
 {
+	
 	class Component;
 	class TransformComponent;
 
@@ -16,6 +17,12 @@ namespace Hive
 		void Start();
 		void Update();
 		void Render() const;
+
+		void OnTriggerEnter2D(const Collision & trigger);
+		void OnTriggerExit2D(const Collision& trigger);
+
+		void OnCollisionEnter2D(const Collision& collision);
+		void OnCollisionExit2D(const Collision& collision);
 
 		GameObject(const GameObject& other) = delete;
 		GameObject(GameObject&& other) = delete;

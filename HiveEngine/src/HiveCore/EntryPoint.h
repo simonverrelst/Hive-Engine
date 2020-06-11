@@ -1,3 +1,4 @@
+
 #pragma once
 #ifdef HV_PLATFORM_WINDOWS
 

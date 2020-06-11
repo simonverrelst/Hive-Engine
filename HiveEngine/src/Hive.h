@@ -3,7 +3,6 @@
 // Used by hive game
 
 
-
 #include "HiveCore/Core.h"
 #include "HiveCore/Application.h"
 #include "HiveHelpers/Singleton.h"
@@ -23,10 +22,6 @@
 #include "HiveComponents/SpriteComponent.h"
 #include "HiveRender/Font.h"
 #include "HiveRender/Texture2D.h"
-
-
-
-
 
 
 
