@@ -4,10 +4,12 @@
 struct SDL_Window;
 struct SDL_Renderer;
 
-class Texture2D;
+
 
 namespace Hive
 {
+	class Texture2D;
+
 	class Renderer final : public Singleton<Renderer>
 	{
 	public:

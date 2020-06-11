@@ -7,7 +7,7 @@
 #include "TransformComponent.h"
 
 Hive::TextComponent::TextComponent(const std::string& text, Font * font) 
-	: m_NeedsUpdate(true), m_Text(text), m_Font(font), m_Texture(nullptr)
+	: m_NeedsUpdate(true), m_Text(text), m_Font(font), m_Texture(new Texture2D(nullptr))
 { }
 
 void Hive::TextComponent::Start()

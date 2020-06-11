@@ -1,6 +1,5 @@
 #include "HiveGame.h"
 
-#include <glm/vec3.hpp>
 #include "TestScene.h"
 
 
@@ -17,12 +16,7 @@ HiveGame::~HiveGame()
 
 void HiveGame::Start()
 {
-	LOG_WARN("Test");
-	glm::vec3 vectors{ 10,10,10 };
-	glm::vec3 vectors2{ 10,10,10 };
-	vectors += vectors2;
-
-	
+	Hive::ResourceManager::GetInstance().Init("Resources/");
 
 	Hive::SceneManager::GetInstance().AddScene(new TestScene(),true);
 

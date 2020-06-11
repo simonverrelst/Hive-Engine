@@ -20,13 +20,13 @@ void Hive::ResourceManager::Init(const std::string& dataPath)
 	if ((IMG_Init(IMG_INIT_JPG) & IMG_INIT_JPG) != IMG_INIT_JPG) 
 	{
 		LOG_ENGINE_ERROR(std::string("Failed to load support for jpg's: ") + SDL_GetError());
-	//	throw std::runtime_error(std::string("Failed to load support for jpg's: ") + SDL_GetError());
+		throw std::runtime_error(std::string("Failed to load support for jpg's: ") + SDL_GetError());
 	}
 
 	if (TTF_Init() != 0) 
 	{
 		LOG_ENGINE_ERROR(std::string("Failed to load support for fonts: ") + SDL_GetError());
-	//	throw std::runtime_error(std::string("Failed to load support for fonts: ") + SDL_GetError());
+		throw std::runtime_error(std::string("Failed to load support for fonts: ") + SDL_GetError());
 	}
 }
 
@@ -36,6 +36,7 @@ Hive::Texture2D* Hive::ResourceManager::LoadTexture(const std::string& file) con
 	auto texture = IMG_LoadTexture(Renderer::GetInstance().GetSDLRenderer(), fullPath.c_str());
 	if (texture == nullptr)
 	{
+		LOG_ENGINE_ERROR(std::string("Failed to load texture: ") + SDL_GetError());
 		throw std::runtime_error(std::string("Failed to load texture: ") + SDL_GetError());
 	}
 	return new Texture2D(texture);
