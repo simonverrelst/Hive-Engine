@@ -16,6 +16,7 @@ namespace Hive
 
 		void Start();
 		void Update();
+		void FixedUpdate();
 		void Render() const;
 
 		void OnTriggerEnter2D(const Collision & trigger);

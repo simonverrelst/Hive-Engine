@@ -13,7 +13,7 @@ namespace Hive
 		virtual ~RigidBodyComponent() = default;
 	protected:
 		void Start() override;
-		void Update() override;
+		void FixedUpdate() override;
 
 		b2Body* GetBody() const { return m_pBody; };
 	private:

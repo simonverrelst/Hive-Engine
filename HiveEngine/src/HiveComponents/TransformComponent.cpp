@@ -26,6 +26,17 @@ namespace Hive
 		m_Position.y = y;
 		m_Position.z = z;
 	}
+
+	void TransformComponent::SetPosition(const glm::vec3 position)
+	{
+		SetPosition(position.x, position.y, position.z);
+	}
+
+	void TransformComponent::SetPosition(const glm::vec2 position)
+	{
+		SetPosition(position.x, position.y, 0.f);
+	}
+
 }
 
 

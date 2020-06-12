@@ -24,8 +24,8 @@ void HiveGame::Start()
 
 void HiveGame::Update()
 {
-	size_t elapsedSec = Hive::Time::GetInstance().GetFPS();
-	LOG_INFO("elapsed sec = {0}", elapsedSec);
+	//float elapsedSec = Hive::Time::GetInstance().GetElapsedTime();
+	//LOG_INFO("elapsed sec = {0}", elapsedSec);
 
 	if (Hive::InputManager::GetInstance().IsKeyPressed(SDL_SCANCODE_RIGHT))
 	{
@@ -35,5 +35,5 @@ void HiveGame::Update()
 
 void HiveGame::Render()
 {
-//	throw std::logic_error("The method or operation is not implemented.");
+
 }

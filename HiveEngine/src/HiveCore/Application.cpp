@@ -5,6 +5,7 @@
 #include "HiveHelpers/Logger.h"
 #include "HiveInput/InputManager.h"
 #include "HiveScene/SceneManager.h"
+#include "HivePhysics/Physics.h"
 
 namespace Hive {
 
@@ -21,6 +22,7 @@ namespace Hive {
 	void Application::Init()
 	{
 		Time::GetInstance().Init();
+		Physics::GetInstance().Init(PhysicsSettings());
 	}
 
 	void Application::Run()
@@ -55,8 +57,11 @@ namespace Hive {
 
 			InternalUpdate();
 
+			InternalPhysicsUpdate();
 
 			InternalRender();
+
+			Physics::GetInstance().DebugRender();
 
 		}
 
@@ -79,16 +84,34 @@ namespace Hive {
 
 	void Application::InternalUpdate()
 	{
-
 		SceneManager::GetInstance().Update();
 
 		Update();
 	}
 	void Application::InternalRender()
 	{
-
-
 		Renderer::GetInstance().Render();
+
 		Render();
+	}
+
+	void Application::InternalPhysicsUpdate()
+	{
+		float elapsedSec = Time::GetInstance().GetElapsedTime();
+		const float fixedStep = Physics::GetInstance().GetFixedTimeStep();
+
+		if (elapsedSec > 0.25f)
+			elapsedSec = 0.25f;
+
+		Time::GetInstance().m_FrameTimeCounter += elapsedSec;
+
+		while (Time::GetInstance().m_FrameTimeCounter >= fixedStep)
+		{
+			Physics::GetInstance().Step();
+
+			SceneManager::GetInstance().FixedUpdate();
+
+			Time::GetInstance().m_FrameTimeCounter -= fixedStep;
+		}
 	}
 }

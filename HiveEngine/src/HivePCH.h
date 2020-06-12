@@ -40,6 +40,8 @@
 #ifdef HV_PLATFORM_WINDOWS
 	//#define WIN32_LEAN_AND_MEAN
 	#include <windows.h>
-
+	
 #endif
+
+#define SafeDelete(p) if (p) { delete (p); (p) = nullptr; }
 

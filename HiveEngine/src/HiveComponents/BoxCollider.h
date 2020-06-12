@@ -1,18 +1,24 @@
 #pragma once
-#include "Component.h"
+#include "ColliderComponent.h"
+
+#include "glm/vec2.hpp"
 namespace Hive
 {
-	class BoxCollider final : public Component
+	class BoxCollider final : public ColliderComponent
 	{
-		BoxCollider() = default;
-		virtual ~BoxCollider() = default;
 	public:
+		BoxCollider(const ColliderSettings& settings,const glm::vec2& boxPos = {}, const glm::vec2& boxSize = {30,30});
+		virtual ~BoxCollider() = default;
+
 		void Start() override;
 
-		void Update() override;
+	protected:
 
-		void Render() override;
+	
+	private:
 
+		glm::vec2 m_BoxPos;
+		glm::vec2 m_BoxSize;
 	};
 
 }

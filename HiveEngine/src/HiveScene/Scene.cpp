@@ -22,6 +22,12 @@ void Hive::Scene::SceneUpdate()
 		object->Update();
 }
 
+void Hive::Scene::SceneFixedUpdate()
+{
+	for (const auto& object : m_Objects)
+		object->FixedUpdate();
+}
+
 void Hive::Scene::SceneRender() const
 {
 	for (const auto& object : m_Objects)

@@ -23,7 +23,9 @@ void Hive::Time::Update()
 	// Counting amount of frames in a second
 	m_FPSTimer += m_ElapsedSec;
 	++m_FPSCounter;
-	if (m_FPSTimer >= 1.0f) {
+
+	if (m_FPSTimer >= 1.0f) 
+	{
 		m_FPS = m_FPSCounter;
 		m_FPSCounter = 0;
 		m_FPSTimer -= 1.0f;

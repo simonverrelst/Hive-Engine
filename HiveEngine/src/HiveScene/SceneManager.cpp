@@ -11,8 +11,16 @@ namespace Hive
 			m_ActiveScene->SceneUpdate();
 			m_ActiveScene->Update();
 		}
-
 	}
+
+
+	void SceneManager::FixedUpdate()
+	{
+		if (m_ActiveScene) {
+			m_ActiveScene->SceneFixedUpdate();
+		}
+	}
+
 
 	void SceneManager::Render()
 	{

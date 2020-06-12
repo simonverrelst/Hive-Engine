@@ -20,11 +20,12 @@ namespace Hive {
 
 		void HandleEvent();
 
+
+	protected:
 		void InternalUpdate();
 		void InternalRender();
+		void InternalPhysicsUpdate();
 
-
-	private:
 		bool EngineRunning;
 		SDL_Window* m_Window;
 	

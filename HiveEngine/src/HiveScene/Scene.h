@@ -17,6 +17,7 @@ namespace Hive
 		virtual void Render() const = 0; // called on render
 
 		void SceneUpdate();
+		void SceneFixedUpdate();
 		void SceneRender() const;
 
 		virtual ~Scene() = default;

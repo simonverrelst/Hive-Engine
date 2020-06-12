@@ -10,6 +10,8 @@ namespace Hive
 
 	void Component::OnTriggerEnter2D(const Collision& trigger)
 	{
+		
+		
 		UNREFERENCED_PARAMETER(trigger);
 	}
 

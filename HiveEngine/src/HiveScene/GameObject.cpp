@@ -8,7 +8,8 @@ namespace Hive
 	GameObject::GameObject()
 		:m_Transform{}
 	{
-
+		m_Transform = new TransformComponent();
+		AddComponent(m_Transform);
 	}
 
 	GameObject::~GameObject()
@@ -20,18 +21,24 @@ namespace Hive
 		comp->gameObject = this;
 		m_Components.push_back(comp);
 
+		comp->Start();
 	}
 
 	void GameObject::Start()
 	{
-		m_Transform = new TransformComponent();
-		AddComponent(m_Transform);
+
 	}
 
 	void GameObject::Update()
 	{
 		for (Component* component : m_Components)
 			component->Update();
+	}
+
+	void GameObject::FixedUpdate()
+	{
+		for (Component* component : m_Components)
+			component->FixedUpdate();
 	}
 
 	void GameObject::Render() const

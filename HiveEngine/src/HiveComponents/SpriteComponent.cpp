@@ -18,6 +18,7 @@ Hive::SpriteComponent::~SpriteComponent()
 
 void Hive::SpriteComponent::Start()
 {
+
 }
 
 void Hive::SpriteComponent::Update()

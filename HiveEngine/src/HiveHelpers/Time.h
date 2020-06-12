@@ -16,7 +16,12 @@ namespace Hive
 
 		float GetElapsedTime() { return m_ElapsedSec; };
 		float GetTotalTime() { return m_TotalTime; };
+	
 		size_t GetFPS() { return m_FPS; };
+	public:
+
+		float m_FrameTimeCounter = 0.f;
+	
 	private:
 
 		float m_FPSTimer = 0;

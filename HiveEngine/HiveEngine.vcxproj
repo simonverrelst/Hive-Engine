@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\HiveComponents\ColliderComponent.h" />
     <ClInclude Include="src\HiveComponents\BoxCollider.h" />
     <ClInclude Include="src\HiveComponents\RigidBodyComponent.h" />
     <ClInclude Include="src\HiveHelpers\Structs.h" />
@@ -47,6 +48,7 @@
     <ClInclude Include="src\HiveScene\SceneManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\HiveComponents\ColliderComponent.cpp" />
     <ClCompile Include="src\HiveComponents\BoxCollider.cpp" />
     <ClCompile Include="src\HiveComponents\RigidBodyComponent.cpp" />
     <ClCompile Include="src\HivePhysics\Physics.cpp" />
@@ -159,8 +161,7 @@
       <ForcedIncludeFiles>
       </ForcedIncludeFiles>
       <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <LanguageStandard>Default</LanguageStandard>
       <StructMemberAlignment>Default</StructMemberAlignment>
     </ClCompile>
     <Link>
@@ -196,7 +197,6 @@
       </ForcedIncludeFiles>
       <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -235,7 +235,6 @@
       </ForcedIncludeFiles>
       <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <StructMemberAlignment>Default</StructMemberAlignment>
     </ClCompile>
     <Link>
@@ -274,7 +273,6 @@
       </ForcedIncludeFiles>
       <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
