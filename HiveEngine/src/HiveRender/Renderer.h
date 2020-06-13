@@ -4,6 +4,10 @@
 struct SDL_Window;
 struct SDL_Renderer;
 
+#pragma warning( push )
+#pragma warning( disable : 4201)
+#include "glm/vec2.hpp"
+#pragma warning( pop ) 
 
 namespace Hive
 {
@@ -16,8 +20,7 @@ namespace Hive
 		void Render() const;
 		void Destroy();
 
-		void RenderTexture(Texture2D * texture, float x, float y) const;
-		void RenderTexture(Texture2D * texture, float x, float y, float width, float height) const;
+		void RenderTexture(Texture2D * texture, const glm::vec2 & pos, const glm::vec2 & scale, float rotation) const;
 
 		SDL_Renderer* GetSDLRenderer() const { return m_Renderer; }
 

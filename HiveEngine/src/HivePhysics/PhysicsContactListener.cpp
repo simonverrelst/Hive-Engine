@@ -82,12 +82,12 @@ void Hive::PhysicsContactListener::PreSolve(b2Contact* contact, const b2Manifold
 {
 	UNREFERENCED_PARAMETER(contact);
 	UNREFERENCED_PARAMETER(oldManifold);
-	throw std::logic_error("The method or operation is not implemented.");
+	//throw std::logic_error("The method or operation is not implemented.");
 }
 
 void Hive::PhysicsContactListener::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
 {
 	UNREFERENCED_PARAMETER(contact);
 	UNREFERENCED_PARAMETER(impulse);
-	throw std::logic_error("The method or operation is not implemented.");
+//	throw std::logic_error("The method or operation is not implemented.");
 }

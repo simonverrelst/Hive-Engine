@@ -26,8 +26,11 @@ void Hive::TextComponent::Render()
 {
 	if (m_pTexture != nullptr)
 	{
-		auto pos = gameObject->GetTransform()->GetPosition();
-		Renderer::GetInstance().RenderTexture(m_pTexture, pos.x, pos.y);
+		const glm::vec2 position = gameObject->GetTransform()->GetPosition();
+		const float rotation = gameObject->GetTransform()->GetRotation();
+		const glm::vec2 scale = gameObject->GetTransform()->GetScale();
+
+		Renderer::GetInstance().RenderTexture(m_pTexture, position, scale, rotation);
 	}
 }
 

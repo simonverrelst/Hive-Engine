@@ -3,7 +3,7 @@
 #include "Renderer.h"
 #include "Texture2D.h"
 #include "Box2D/Box2D.h"
-#include "HiveHelpers/Utils.h"
+
 
 
 void Hive::Renderer::Init(SDL_Window* window)
@@ -35,26 +35,18 @@ void Hive::Renderer::Destroy()
 	}
 }
 
-void Hive::Renderer::RenderTexture(Texture2D * texture, const float x, const float y, const float width, const float height) const
+
+void Hive::Renderer::RenderTexture(Texture2D* texture, const glm::vec2& pos, const glm::vec2& scale, float rotation) const
 {
 	SDL_Rect dst;
-	dst.x = static_cast<int>(x);
-	dst.y = static_cast<int>(y);
-	dst.w = static_cast<int>(width);
-	dst.h = static_cast<int>(height);
-	SDL_RenderCopy(Renderer::GetInstance().GetSDLRenderer(), texture->GetSDLTexture(), nullptr, &dst);
-	
-}
+	dst.x = static_cast<int>(pos.x);
+	dst.y = static_cast<int>(pos.y);
+	dst.w = static_cast<int>(texture->GetWidth() * scale.x);
+	dst.h = static_cast<int>(texture->GetHeight() * scale.y);
 
-void Hive::Renderer::RenderTexture(Texture2D * texture, float x, float y) const
-{
-	SDL_Rect dst;
-	dst.x = static_cast<int>(x);
-	dst.y = static_cast<int>(y);
-	SDL_QueryTexture(texture->GetSDLTexture(), nullptr, nullptr, &dst.w, &dst.h);
-	SDL_RenderCopy(Renderer::GetInstance().GetSDLRenderer(), texture->GetSDLTexture(), nullptr, &dst);
-}
+	SDL_RenderCopyEx(GetSDLRenderer(), texture->GetSDLTexture(), nullptr, &dst,ToEuler(rotation),nullptr,SDL_RendererFlip::SDL_FLIP_NONE);
 
+}
 
 void Hive::Renderer::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color)
 {

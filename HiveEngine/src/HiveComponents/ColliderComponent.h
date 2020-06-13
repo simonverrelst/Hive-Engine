@@ -12,6 +12,7 @@ namespace Hive
 {
 	struct ColliderSettings
 	{
+
 		ColliderSettings(float friction = 0.3f, float restitution = 0.f, bool isTrigger = false, float density = 1.f)
 			:m_Friction {friction}
 			,m_Restitution {restitution}
@@ -35,7 +36,7 @@ namespace Hive
 
 		b2Fixture* GetCollisionShape() const { return m_pFixture; }
 
-	private:
+	protected:
 
 		b2Fixture* m_pFixture = nullptr;
 		ColliderSettings m_ColliderSettings;

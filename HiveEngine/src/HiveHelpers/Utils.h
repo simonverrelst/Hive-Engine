@@ -6,6 +6,7 @@
 #include "glm/vec2.hpp"
 #pragma warning( pop ) 
 
+#include "glm/trigonometric.hpp"
 
 #include "Box2D/Box2D.h"
 
@@ -17,7 +18,7 @@ namespace Hive
 		return glm::vec2{ vec.x,vec.y };
 	}
 
-	inline b2Vec2 ToBox2D(const glm::vec2 & vec)
+	inline b2Vec2 ToVectorBox2D(const glm::vec2 & vec)
 	{
 		return b2Vec2{ vec.x,vec.y };
 	}
@@ -28,12 +29,20 @@ namespace Hive
 		return glm::vec2{ vec.x * ppm,vec.y * ppm };
 	}
 
-	inline b2Vec2 ToPhysicsSpace(const glm::vec2& vec)
+	inline glm::vec2 ToPhysicsSpace(const glm::vec2& vec)
 	{
 		float ppm = Physics::GetInstance().GetPixelPerMeter();
-		return b2Vec2{ vec.x / ppm,vec.y / ppm };
+		return glm::vec2{ vec.x / ppm,vec.y / ppm };
 	}
 
+	inline float ToRadians( float angle)
+	{
+		return glm::radians(angle);
+	}
 
+	inline float ToEuler(float angle)
+	{
+		return glm::degrees(angle);
+	}
 }
 

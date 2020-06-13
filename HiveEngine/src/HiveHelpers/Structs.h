@@ -32,7 +32,7 @@ namespace Hive
 
 	struct PhysicsSettings
 	{
-		PhysicsSettings(uint32 posIts = 3, uint32 velIts = 8, float fixedTimeStep = 1.f/60.f)
+		PhysicsSettings(uint32 posIts = 6, uint32 velIts = 8, float fixedTimeStep = 1.f/60.f)
 			:positionIterations{posIts}
 			,velocityIterations {velIts}
 			,fixedStep {fixedTimeStep}

@@ -61,7 +61,10 @@ namespace Hive {
 
 			InternalRender();
 
+		#ifdef _DEBUG
 			Physics::GetInstance().DebugRender();
+		#endif // _DEBUG
+
 
 		}
 
@@ -110,9 +113,11 @@ namespace Hive {
 
 		while (Time::GetInstance().m_FrameTimeCounter >= fixedStep)
 		{
+			SceneManager::GetInstance().FixedUpdate();
+
 			Physics::GetInstance().Step();
 
-			SceneManager::GetInstance().FixedUpdate();
+			
 
 			Time::GetInstance().m_FrameTimeCounter -= fixedStep;
 		}

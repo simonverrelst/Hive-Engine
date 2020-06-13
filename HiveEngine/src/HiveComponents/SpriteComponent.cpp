@@ -28,8 +28,10 @@ void Hive::SpriteComponent::Update()
 
 void Hive::SpriteComponent::Render()
 {
-	const auto position = gameObject->GetTransform()->GetPosition();
+	const glm::vec2 position = gameObject->GetTransform()->GetPosition();
+	const float rotation = gameObject->GetTransform()->GetRotation();
+	const glm::vec2 scale = gameObject->GetTransform()->GetScale();
 	
 	
-	Renderer::GetInstance().RenderTexture(m_pTexture, position.x, position.y);
+	Renderer::GetInstance().RenderTexture(m_pTexture, position,scale, rotation);
 }

@@ -20,21 +20,23 @@ namespace Hive
 	{
 	}
 
-	void TransformComponent::SetPosition(float x, float y, float z)
+	void TransformComponent::SetPosition(float x, float y)
 	{
 		m_Position.x = x;
 		m_Position.y = y;
-		m_Position.z = z;
 	}
 
-	void TransformComponent::SetPosition(const glm::vec3 position)
+	void TransformComponent::SetPosition(const glm::vec2& position)
 	{
-		SetPosition(position.x, position.y, position.z);
+		SetPosition(position.x, position.y);
 	}
 
-	void TransformComponent::SetPosition(const glm::vec2 position)
+	void TransformComponent::SetRotation(float angle, bool euler)
 	{
-		SetPosition(position.x, position.y, 0.f);
+		if (euler)
+			angle = ToRadians(angle);
+
+		m_Rotation = angle;
 	}
 
 }

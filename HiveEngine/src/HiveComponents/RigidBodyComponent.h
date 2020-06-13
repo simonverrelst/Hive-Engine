@@ -11,11 +11,13 @@ namespace Hive
 	public:
 		RigidBodyComponent(const RigidBodySettings& settings);
 		virtual ~RigidBodyComponent();
+
+
+		b2Body* GetBody() const { return m_pBody; };
 	protected:
 		void Start() override;
 		void FixedUpdate() override;
 
-		b2Body* GetBody() const { return m_pBody; };
 	private:
 		b2Body* m_pBody;
 		RigidBodySettings m_Settings;

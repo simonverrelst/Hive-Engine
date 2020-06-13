@@ -4,7 +4,7 @@
 #include "Box2D/Box2D.h"
 #include "HiveScene/GameObject.h"
 #include "TransformComponent.h"
-#include "HiveHelpers/Utils.h"
+
 
 
 Hive::RigidBodyComponent::RigidBodyComponent(const RigidBodySettings& settings)
@@ -24,11 +24,13 @@ void Hive::RigidBodyComponent::Start()
 	definition.fixedRotation = m_Settings.m_FixedRotation;
 	definition.type = m_Settings.m_BodyType;
 	definition.enabled = true;
-	definition.position.Set(pos.x, pos.y);
+	definition.position = ToVectorBox2D(pos);
 	definition.allowSleep = false;
 
 
 	m_pBody = Physics::GetInstance().GetPhysicsWorld()->CreateBody(&definition);
+
+	
 
 	b2MassData mass{};
 	mass.mass = 1.f;
@@ -41,7 +43,7 @@ void Hive::RigidBodyComponent::FixedUpdate()
 	const auto transform = m_pBody->GetTransform();
 	float angle = transform.q.GetAngle();
 	gameObject->GetTransform()->SetPosition(ToPixelSpace(transform.p));
-	gameObject->GetTransform()->SetRotation(angle);
+	gameObject->GetTransform()->SetRotation(angle,false);
 }
 
 Hive::RigidBodyComponent::~RigidBodyComponent()
