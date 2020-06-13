@@ -1,4 +1,5 @@
 #pragma once
+
 #include "HiveHelpers/Structs.h"
 
 namespace Hive
@@ -6,6 +7,7 @@ namespace Hive
 	
 	class Component;
 	class TransformComponent;
+	class Scene;
 
 	class  GameObject
 	{
@@ -25,6 +27,7 @@ namespace Hive
 		void OnCollisionEnter2D(const Collision& collision);
 		void OnCollisionExit2D(const Collision& collision);
 
+
 		GameObject(const GameObject& other) = delete;
 		GameObject(GameObject&& other) = delete;
 		GameObject& operator=(const GameObject& other) = delete;
@@ -32,6 +35,7 @@ namespace Hive
 
 		void AddComponent(Component * comp);
 		TransformComponent* GetTransform() { return m_Transform; };
+		Scene* GetScene() { return m_pScene; }
 
 		template <class T>
 		T* GetComponent()
@@ -45,10 +49,23 @@ namespace Hive
 			return nullptr;
 		}
 
+		Scene* m_pScene;
+
+		void SetActive(bool state);
+		bool IsActive() const { return m_IsActive; }
+
+	protected:
+		void OnEnable();
+		void OnDisable();
+
+
 	private:
 		std::vector<Component *> m_Components;
 
 		TransformComponent * m_Transform;
+
+		bool m_IsActive{ true };
+
 	};
 }
 

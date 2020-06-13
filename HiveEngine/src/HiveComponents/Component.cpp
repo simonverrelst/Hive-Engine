@@ -30,6 +30,27 @@ namespace Hive
 		UNREFERENCED_PARAMETER(collision);
 	}
 
+	void Component::OnEnable()
+	{
+
+	}
+
+	void Component::OnDisable()
+	{
+
+	}
+
+	void Component::SetActive(bool state)
+	{
+		m_IsActive = state;
+		if (m_IsActive) {
+			OnEnable();
+		}
+		else {
+			OnDisable();
+		}
+	}
+
 }
 
 

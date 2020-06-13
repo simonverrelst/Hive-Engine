@@ -1,6 +1,7 @@
 #pragma once
 #include "HiveScene/Scene.h"
 
+class LevelManager;
 
 class TestScene final :	public Hive::Scene
 {
@@ -13,6 +14,7 @@ protected:
 	void Update() override;
 
 	void Render() const override;
-
+private:
+	LevelManager* m_pLevelManager;
 };
 

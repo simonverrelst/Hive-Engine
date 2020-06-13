@@ -21,7 +21,14 @@ Hive::Texture2D::Texture2D(SDL_Texture* texture)
 
 Hive::Texture2D::~Texture2D()
 {
-	SDL_DestroyTexture(m_Texture);
+	if(m_Texture)
+	{
+		SDL_DestroyTexture(m_Texture);
+		m_Texture = nullptr;
+	}
+
+
+	
 }
 
 void Hive::Texture2D::SetSDLTexture(SDL_Texture* texture)

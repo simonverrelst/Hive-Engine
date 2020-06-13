@@ -24,8 +24,7 @@ void Hive::Physics::Init(const PhysicsSettings & settings)
 	m_pWorld->SetDebugDraw(m_pPhysicsDebugger);
 
 	uint32 flags{};
-	//flags += b2Draw::e_shapeBit;
-	flags += b2Draw::e_centerOfMassBit;
+	flags += b2Draw::e_shapeBit;
 	flags += b2Draw::e_aabbBit;
 
 	m_pPhysicsDebugger->SetFlags(flags);
@@ -97,7 +96,6 @@ void Hive::PhysicsDebugger::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, cons
 
 void Hive::PhysicsDebugger::DrawTransform(const b2Transform& xf)
 {
-
 	Renderer::GetInstance().DrawTransform(xf);
 }
 

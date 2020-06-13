@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\HiveComponents\EdgeCollider.h" />
+    <ClInclude Include="src\HiveComponents\CircleCollider.h" />
     <ClInclude Include="src\HiveComponents\ColliderComponent.h" />
     <ClInclude Include="src\HiveComponents\BoxCollider.h" />
     <ClInclude Include="src\HiveComponents\RigidBodyComponent.h" />
@@ -50,6 +52,8 @@
     <ClInclude Include="src\HiveScene\SceneManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\HiveComponents\EdgeCollider.cpp" />
+    <ClCompile Include="src\HiveComponents\CircleCollider.cpp" />
     <ClCompile Include="src\HiveComponents\ColliderComponent.cpp" />
     <ClCompile Include="src\HiveComponents\BoxCollider.cpp" />
     <ClCompile Include="src\HiveComponents\RigidBodyComponent.cpp" />

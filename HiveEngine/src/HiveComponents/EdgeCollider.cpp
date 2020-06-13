@@ -1,22 +1,19 @@
 #include "HivePCH.h"
-#include "BoxCollider.h"
+#include "EdgeCollider.h"
 #include "HiveScene/GameObject.h"
 #include "RigidBodyComponent.h"
 #include "TransformComponent.h"
 #include "HiveHelpers/Logger.h"
 
-
-
-
-Hive::BoxCollider::BoxCollider(const ColliderSettings& settings, const glm::vec2& offset, const glm::vec2& boxSize)
+Hive::EdgeCollider::EdgeCollider(const ColliderSettings& settings, const glm::vec2& offset, float radius)
 	:ColliderComponent(settings)
-	,m_BoxPos{ offset }
-	,m_BoxSize{boxSize}
+	,m_LocalPos { offset }
+	,m_Radius {radius}
 {
-	
+
 }
 
-void Hive::BoxCollider::Start()
+void Hive::EdgeCollider::Start()
 {
 	const RigidBodyComponent* pRb = gameObject->GetComponent<RigidBodyComponent>();
 
@@ -26,21 +23,20 @@ void Hive::BoxCollider::Start()
 		return;
 	}
 
-	b2PolygonShape boxShape{};
+	b2EdgeShape edgeShape{};
 
-	const auto boxPos = ToPhysicsSpace(m_BoxPos);
-	const auto boxSize = ToPhysicsSpace(m_BoxSize * gameObject->GetTransform()->GetScale());
+	const auto localPos = ToPhysicsSpace(m_LocalPos);
+	const auto radius = m_Radius / Physics::GetInstance().GetPixelPerMeter();
 
-	boxShape.SetAsBox(boxSize.x, boxSize.y, ToVectorBox2D(boxPos), gameObject->GetTransform()->GetRotation());
+	edgeShape.m_radius = 0;
 
 	b2FixtureDef colliderDef{};
-	colliderDef.shape = &boxShape;
+	colliderDef.shape = &edgeShape;
 	colliderDef.density = m_ColliderSettings.m_Density;
 	colliderDef.restitution = m_ColliderSettings.m_Restitution;
 	colliderDef.isSensor = m_ColliderSettings.m_IsTrigger;
 	colliderDef.userData = gameObject;
-	
+
 
 	m_pFixture = pRb->GetBody()->CreateFixture(&colliderDef);
-
 }

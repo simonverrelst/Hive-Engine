@@ -21,10 +21,12 @@ namespace Hive
 		void Destroy();
 
 		void RenderTexture(Texture2D * texture, const glm::vec2 & pos, const glm::vec2 & scale, float rotation) const;
+		void RenderTexture(const AnimationData& animData, const glm::vec2& pos, const glm::vec2& scale, float rotation) const;
 
 		SDL_Renderer* GetSDLRenderer() const { return m_Renderer; }
 
 	public:
+
 		void DrawPoint(const b2Vec2& p, float size, const b2Color& color);
 		void DrawTransform(const b2Transform& xf);
 		void DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& color);

@@ -1,11 +1,10 @@
 #pragma once
 #include "Box2D/Box2D.h"
 
-
-
 namespace Hive
 {
 	class GameObject;
+	class Texture2D;
 
 	struct Collision
 	{
@@ -41,6 +40,16 @@ namespace Hive
 		uint32 positionIterations;
 		uint32 velocityIterations;
 		float fixedStep;
+	};
+
+	struct AnimationData
+	{
+		Hive::Texture2D* texture;
+		int frameWidth;
+		int frameHeight;
+		int frameNrCollums;
+		int frameNrRows;
+		int frameNumber;
 	};
 }
 

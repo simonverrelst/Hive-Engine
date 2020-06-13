@@ -27,7 +27,7 @@ namespace Hive {
 
 	void Application::Run()
 	{
-		if (SDL_Init(SDL_INIT_VIDEO) != 0)
+		if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER) != 0)
 		{
 			LOG_ENGINE_ERROR("SDL FAILED TO INITIALIZE");
 		}
@@ -36,8 +36,8 @@ namespace Hive {
 			"Hive Engine",
 			SDL_WINDOWPOS_UNDEFINED,
 			SDL_WINDOWPOS_UNDEFINED,
-			1280,
-			720,
+			640,
+			500,
 			SDL_WINDOW_OPENGL
 		);
 		if (m_Window == nullptr)
@@ -63,6 +63,7 @@ namespace Hive {
 
 		#ifdef _DEBUG
 			Physics::GetInstance().DebugRender();
+			SDL_RenderPresent(Renderer::GetInstance().GetSDLRenderer());
 		#endif // _DEBUG
 
 

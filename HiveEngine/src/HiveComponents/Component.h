@@ -24,8 +24,19 @@ namespace Hive
 		virtual void OnCollisionEnter2D(const Collision& collision);
 		virtual void OnCollisionExit2D(const Collision& collision);
 
+		virtual void OnEnable();
+		virtual void OnDisable();
 
+		void SetActive(bool state);
+	
 		GameObject* gameObject = nullptr;
+	private:
+		
+
+		bool IsActive() { return m_IsActive; }
+		bool m_IsActive{ true };
+		
+	
 	};
 }
 

@@ -44,8 +44,12 @@ Hive::Scene::~Scene()
 
 void Hive::Scene::Add(GameObject* object)
 {
+	object->m_pScene = this;
+
 	object->Start();
 	m_pObjects.push_back(object);
+	
+
 }
 
 
