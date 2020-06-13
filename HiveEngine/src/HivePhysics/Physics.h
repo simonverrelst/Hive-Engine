@@ -7,6 +7,8 @@
 
 namespace Hive
 {
+	class PhysicsContactListener;
+
 	class PhysicsDebugger final : public b2Draw 
 	{
 	
@@ -57,6 +59,10 @@ namespace Hive
 
 
 		float m_PixelsPerMeter{ 100.f };
+
+		PhysicsDebugger* m_pPhysicsDebugger;
+		PhysicsContactListener* m_pContactListener;
+
 	};
 
 

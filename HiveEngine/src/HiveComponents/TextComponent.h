@@ -17,7 +17,7 @@ namespace Hive
 		void SetText(const std::string& text);
 
 		explicit TextComponent(const std::string& text, Font* font);
-		virtual ~TextComponent() = default;
+		virtual ~TextComponent();
 		TextComponent(const TextComponent& other) = delete;
 		TextComponent(TextComponent&& other) = delete;
 		TextComponent& operator=(const TextComponent& other) = delete;
@@ -26,8 +26,8 @@ namespace Hive
 	private:
 		bool m_NeedsUpdate;
 		std::string m_Text;
-		Font* m_Font;
-		Texture2D* m_Texture;
+		Font* m_pFont;
+		Texture2D* m_pTexture;
 
 	};
 }

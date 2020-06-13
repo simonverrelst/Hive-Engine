@@ -36,6 +36,10 @@
 
 #include <Box2D/Box2D.h>
 
+#ifdef _DEBUG
+	#include "vld/vld.h"
+#endif // _DEBUG
+
 
 #ifdef HV_PLATFORM_WINDOWS
 	//#define WIN32_LEAN_AND_MEAN

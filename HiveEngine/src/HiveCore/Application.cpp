@@ -66,6 +66,9 @@ namespace Hive {
 		}
 
 		Renderer::GetInstance().Destroy();
+		SceneManager::GetInstance().Destroy();
+		Physics::GetInstance().Destroy();
+
 		SDL_DestroyWindow(m_Window);
 		m_Window = nullptr;
 		SDL_Quit();

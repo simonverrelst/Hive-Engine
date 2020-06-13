@@ -53,5 +53,13 @@ namespace Hive
 		LOG_ENGINE_WARN("Scene not found with name {0}", name);
 	}
 
+	void SceneManager::Destroy()
+	{
+		for (Scene * scene : m_Scenes)
+		{
+			SafeDelete(scene);
+		}
+	}
+
 }
 

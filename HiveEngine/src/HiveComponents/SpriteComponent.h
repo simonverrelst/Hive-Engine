@@ -17,7 +17,7 @@ namespace Hive
 		virtual void Update() override;
 		virtual void Render() override;
 	private:
-		Texture2D * texture;
+		Texture2D * m_pTexture;
 	};
 
 }

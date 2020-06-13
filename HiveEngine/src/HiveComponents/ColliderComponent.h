@@ -3,6 +3,11 @@
 
 #include "Box2D/Box2D.h"
 
+#pragma warning( push )
+#pragma warning( disable : 4201)
+#include "glm/vec2.hpp"
+#pragma warning( pop ) 
+
 namespace Hive
 {
 	struct ColliderSettings

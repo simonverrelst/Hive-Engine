@@ -22,6 +22,8 @@
     <ClInclude Include="src\HiveComponents\ColliderComponent.h" />
     <ClInclude Include="src\HiveComponents\BoxCollider.h" />
     <ClInclude Include="src\HiveComponents\RigidBodyComponent.h" />
+    <ClInclude Include="src\HiveHelpers\BinaryReader.h" />
+    <ClInclude Include="src\HiveHelpers\BinaryWriter.h" />
     <ClInclude Include="src\HiveHelpers\Structs.h" />
     <ClInclude Include="src\HiveHelpers\Utils.h" />
     <ClInclude Include="src\HivePhysics\Physics.h" />
@@ -51,6 +53,8 @@
     <ClCompile Include="src\HiveComponents\ColliderComponent.cpp" />
     <ClCompile Include="src\HiveComponents\BoxCollider.cpp" />
     <ClCompile Include="src\HiveComponents\RigidBodyComponent.cpp" />
+    <ClCompile Include="src\HiveHelpers\BinaryReader.cpp" />
+    <ClCompile Include="src\HiveHelpers\BinaryWriter.cpp" />
     <ClCompile Include="src\HivePhysics\Physics.cpp" />
     <ClCompile Include="src\HiveComponents\SpriteComponent.cpp" />
     <ClCompile Include="src\HiveComponents\TextComponent.cpp" />
@@ -176,7 +180,7 @@
     </PostBuildEvent>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2\$(PlatformShortname)\SDL2.lib;SDL2\$(PlatformShortname)\SDL2main.lib;SDL2\$(PlatformShortname)\SDL2_image.lib;SDL2\$(PlatformShortname)\SDL2_ttf.lib;Box2D\$(PlatformShortname)\box2d_d.lib;xinput.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2\$(PlatformShortname)\SDL2.lib;SDL2\$(PlatformShortname)\SDL2main.lib;SDL2\$(PlatformShortname)\SDL2_image.lib;SDL2\$(PlatformShortname)\SDL2_ttf.lib;Box2D\$(PlatformShortname)\box2d_d.lib;vld\$(PlatformShortname)\vld.lib;xinput.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -213,7 +217,7 @@
     </PostBuildEvent>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2\$(PlatformShortname)\SDL2.lib;SDL2\$(PlatformShortname)\SDL2main.lib;SDL2\$(PlatformShortname)\SDL2_image.lib;SDL2\$(PlatformShortname)\SDL2_ttf.lib;Box2D\$(PlatformShortname)\box2d_d.lib;xinput.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2\$(PlatformShortname)\SDL2.lib;SDL2\$(PlatformShortname)\SDL2main.lib;SDL2\$(PlatformShortname)\SDL2_image.lib;SDL2\$(PlatformShortname)\SDL2_ttf.lib;Box2D\$(PlatformShortname)\box2d_d.lib;vld\$(PlatformShortname)\vld.lib;xinput.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>

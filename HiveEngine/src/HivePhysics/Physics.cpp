@@ -11,24 +11,24 @@ void Hive::Physics::Init(const PhysicsSettings & settings)
 {
 	m_Settings = settings;
 
-	
+	m_pContactListener = new PhysicsContactListener();
+	m_pPhysicsDebugger = new PhysicsDebugger();
 
 	m_pWorld = new b2World(b2Vec2{ 0,9.81f });
 	m_pWorld->SetAllowSleeping(true);
 	m_pWorld->SetContinuousPhysics(true);
-	m_pWorld->SetContactListener(new PhysicsContactListener());
+	m_pWorld->SetContactListener(m_pContactListener);
 	m_pWorld->GetGravity();
 	m_pWorld->SetWarmStarting(true);
 	m_pWorld->SetSubStepping(true);
-
-	const auto debugRenderer = new PhysicsDebugger();
-	m_pWorld->SetDebugDraw(debugRenderer);
+	m_pWorld->SetDebugDraw(m_pPhysicsDebugger);
 
 	uint32 flags{};
 	//flags += b2Draw::e_shapeBit;
 	flags += b2Draw::e_centerOfMassBit;
+	flags += b2Draw::e_aabbBit;
 
-	debugRenderer->SetFlags(flags);
+	m_pPhysicsDebugger->SetFlags(flags);
 
 }
 
@@ -37,7 +37,11 @@ void Hive::Physics::Destroy()
 	
 	ClearBodies();
 	
-	delete m_pWorld;
+	SafeDelete(m_pContactListener);
+
+	SafeDelete(m_pPhysicsDebugger);
+
+	SafeDelete(m_pWorld);
 
 }
 

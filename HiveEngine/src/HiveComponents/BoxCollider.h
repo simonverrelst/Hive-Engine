@@ -1,7 +1,7 @@
 #pragma once
 #include "ColliderComponent.h"
 
-#include "glm/vec2.hpp"
+
 namespace Hive
 {
 	class BoxCollider final : public ColliderComponent

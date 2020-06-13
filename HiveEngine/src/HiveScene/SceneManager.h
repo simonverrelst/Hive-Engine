@@ -17,6 +17,8 @@ namespace Hive
 		void Update();
 		void FixedUpdate();
 		void Render();
+
+		void Destroy();
 	private:
 		friend class Singleton<SceneManager>;
 		SceneManager() = default;

@@ -20,7 +20,7 @@ namespace Hive
 		void SceneFixedUpdate();
 		void SceneRender() const;
 
-		virtual ~Scene() = default;
+		virtual ~Scene();
 
 		Scene(const Scene& other) = delete;
 		Scene(Scene&& other) = delete;
@@ -35,7 +35,7 @@ namespace Hive
 
 
 		std::string m_Name;
-		std::vector <GameObject* > m_Objects;
+		std::vector <GameObject* > m_pObjects;
 
 		static unsigned int m_IdCounter;
 	};

@@ -10,7 +10,7 @@ namespace Hive
 	{
 	public:
 		RigidBodyComponent(const RigidBodySettings& settings);
-		virtual ~RigidBodyComponent() = default;
+		virtual ~RigidBodyComponent();
 	protected:
 		void Start() override;
 		void FixedUpdate() override;

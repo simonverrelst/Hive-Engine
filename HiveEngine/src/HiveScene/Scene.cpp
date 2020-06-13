@@ -12,32 +12,40 @@ const std::string& Hive::Scene::GetSceneName()
 
 Hive::Scene::Scene(const std::string & name)
 	: m_Name(name) 
-	,m_Objects{}
+	,m_pObjects{}
 {
 }
 
 void Hive::Scene::SceneUpdate()
 {
-	for (const auto& object : m_Objects)
+	for (const auto& object : m_pObjects)
 		object->Update();
 }
 
 void Hive::Scene::SceneFixedUpdate()
 {
-	for (const auto& object : m_Objects)
+	for (const auto& object : m_pObjects)
 		object->FixedUpdate();
 }
 
 void Hive::Scene::SceneRender() const
 {
-	for (const auto& object : m_Objects)
+	for (const auto& object : m_pObjects)
 		object->Render();
+}
+
+Hive::Scene::~Scene()
+{
+	for (GameObject * object : m_pObjects)
+	{
+		SafeDelete(object);
+	}
 }
 
 void Hive::Scene::Add(GameObject* object)
 {
 	object->Start();
-	m_Objects.push_back(object);
+	m_pObjects.push_back(object);
 }
 
 

@@ -9,11 +9,12 @@
 
 Hive::SpriteComponent::SpriteComponent(const std::string& filePath)
 {
-	texture = ResourceManager::GetInstance().LoadTexture(filePath);
+	m_pTexture = ResourceManager::GetInstance().LoadTexture(filePath);
 }
 
 Hive::SpriteComponent::~SpriteComponent()
 {
+	SafeDelete(m_pTexture);
 }
 
 void Hive::SpriteComponent::Start()
@@ -27,8 +28,8 @@ void Hive::SpriteComponent::Update()
 
 void Hive::SpriteComponent::Render()
 {
-	auto position = gameObject->GetTransform()->GetPosition();
+	const auto position = gameObject->GetTransform()->GetPosition();
 	
 	
-	Renderer::GetInstance().RenderTexture(texture, position.x, position.y);
+	Renderer::GetInstance().RenderTexture(m_pTexture, position.x, position.y);
 }

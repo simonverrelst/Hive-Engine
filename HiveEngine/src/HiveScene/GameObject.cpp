@@ -14,6 +14,10 @@ namespace Hive
 
 	GameObject::~GameObject()
 	{
+		for (Component * pComp : m_Components)
+		{
+			SafeDelete(pComp);
+		}
 	}
 
 	void GameObject::AddComponent(Component* comp)

@@ -34,8 +34,6 @@ void Hive::RigidBodyComponent::Start()
 	mass.mass = 1.f;
 
 	m_pBody->SetMassData(&mass);
-
-
 }
 
 void Hive::RigidBodyComponent::FixedUpdate()
@@ -44,4 +42,9 @@ void Hive::RigidBodyComponent::FixedUpdate()
 	float angle = transform.q.GetAngle();
 	gameObject->GetTransform()->SetPosition(ToPixelSpace(transform.p));
 	gameObject->GetTransform()->SetRotation(angle);
+}
+
+Hive::RigidBodyComponent::~RigidBodyComponent()
+{
+
 }
