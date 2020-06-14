@@ -38,7 +38,7 @@ void Hive::Renderer::RenderTexture(Texture2D* texture, const glm::vec2& pos, con
 
 }
 
-void Hive::Renderer::RenderTexture(const AnimationData &animData, const glm::vec2& pos, const glm::vec2& scale, float rotation) const
+void Hive::Renderer::RenderTexture(const AnimationData &animData, const glm::vec2& pos, const glm::vec2& scale, float rotation,bool flip) const
 {
 	SDL_Rect src;
 	src.x = static_cast<int>((animData.currentFrameNumber % animData.frameNrCollums) * animData.frameWidth );
@@ -47,17 +47,19 @@ void Hive::Renderer::RenderTexture(const AnimationData &animData, const glm::vec
 	src.h = animData.frameWidth;
 
 	SDL_Rect dst;
-	dst.x = static_cast<int>(pos.x);
-	dst.y = static_cast<int>(pos.y);
+	dst.x = static_cast<int>(pos.x - animData.frameWidth);
+	dst.y = static_cast<int>(pos.y - animData.frameHeight);
 	dst.w = static_cast<int>(animData.texture->GetWidth() * scale.x);
 	dst.h = static_cast<int>(animData.texture->GetHeight() * scale.y);
 
 	SDL_Point center{};
 	center.x = static_cast<int>((animData.frameWidth * scale.x) / 2.f);
 	center.y = static_cast<int>((animData.frameHeight * scale.y ) / 2.f);
-		
 
-	SDL_RenderCopyEx(m_Renderer, animData.texture->GetSDLTexture(), &src, &dst, ToEuler(rotation), &center, SDL_RendererFlip::SDL_FLIP_NONE);
+	SDL_RendererFlip renderFlip{};
+	flip ? (renderFlip = SDL_RendererFlip::SDL_FLIP_HORIZONTAL) : (renderFlip = SDL_RendererFlip::SDL_FLIP_NONE);
+
+	SDL_RenderCopyEx(m_Renderer, animData.texture->GetSDLTexture(), &src, &dst, ToEuler(rotation), &center, renderFlip);
 
 }
 
@@ -85,6 +87,21 @@ void Hive::Renderer::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount,
 	UNREFERENCED_PARAMETER(vertices);
 	UNREFERENCED_PARAMETER(vertexCount);
 	UNREFERENCED_PARAMETER(color);
+
+	SDL_SetRenderDrawColor(m_Renderer, uint8(color.r * 255), uint8(color.b * 255), uint8(color.g * 255), uint8(color.a * 255));
+
+	std::vector<SDL_Point> points{};
+	points.resize(vertexCount + 1);
+
+	for (int i = 0; i < vertexCount; i++)
+	{
+		glm::vec2 pos = ToPixelSpace(vertices[i]);
+		points[i].x = int(pos.x);
+		points[i].y = int(pos.y);
+	}
+
+
+	SDL_RenderDrawLines(m_Renderer, points.data(), vertexCount);
 }
 
 void Hive::Renderer::DrawCircle(const b2Vec2& center, float radius, const b2Color& color)

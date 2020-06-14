@@ -40,11 +40,11 @@ LevelSpriteComponent::~LevelSpriteComponent()
 void LevelSpriteComponent::Render()
 {
 	glm::vec2 position = gameObject->GetTransform()->GetPosition();
-	position -= glm::vec2{ m_AnimationData.frameWidth,m_AnimationData.frameHeight };
+	position -= glm::vec2{ m_AnimationData.frameWidth /2,m_AnimationData.frameHeight /2 };
 	const float rotation = gameObject->GetTransform()->GetRotation();
 	const glm::vec2 scale = gameObject->GetTransform()->GetScale();
 
-	Hive::Renderer::GetInstance().RenderTexture(m_AnimationData, position, scale, rotation);
+	Hive::Renderer::GetInstance().RenderTexture(m_AnimationData, position, scale, rotation,false);
 }
 
 void LevelSpriteComponent::Update()

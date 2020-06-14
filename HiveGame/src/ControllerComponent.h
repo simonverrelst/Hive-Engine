@@ -7,6 +7,12 @@
 #include "glm/vec2.hpp"
 #pragma warning( pop ) 
 
+namespace Hive
+{
+	class AnimatedSprite;
+	class RigidBodyComponent;
+}
+
 class ControllerComponent :
 	public Hive::Component
 {
@@ -20,12 +26,11 @@ protected:
 
 	virtual void FixedUpdate() override;
 
-	float m_WalkSpeed = 450.f;
 	Hive::RigidBodyComponent* m_pRigidbody;
 
 	glm::vec2 m_Velocity{ };
 
 
-
+	Hive::AnimatedSprite* m_pAnimatedSprite;
 };
 

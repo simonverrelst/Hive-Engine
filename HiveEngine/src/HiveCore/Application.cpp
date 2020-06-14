@@ -35,10 +35,10 @@ namespace Hive {
 
 		m_Window = SDL_CreateWindow(
 			"Hive Engine",
-			SDL_WINDOWPOS_UNDEFINED,
-			SDL_WINDOWPOS_UNDEFINED,
+			SDL_WINDOWPOS_CENTERED,
+			SDL_WINDOWPOS_CENTERED,
 			640,
-			500,
+			560,
 			SDL_WINDOW_OPENGL
 		);
 		if (m_Window == nullptr)
@@ -67,8 +67,9 @@ namespace Hive {
 		}
 
 		Renderer::GetInstance().Destroy();
-		SceneManager::GetInstance().Destroy();
 		Physics::GetInstance().Destroy();
+		SceneManager::GetInstance().Destroy();
+
 
 		SDL_DestroyWindow(m_Window);
 		m_Window = nullptr;

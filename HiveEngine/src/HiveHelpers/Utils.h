@@ -35,6 +35,12 @@ namespace Hive
 		return glm::vec2{ vec.x / ppm,vec.y / ppm };
 	}
 
+	inline float ToPhysicsSpace(float value) 
+	{
+		float ppm = Physics::GetInstance().GetPixelPerMeter();
+		return value /= ppm;
+	}
+
 	inline float ToRadians( float angle)
 	{
 		return glm::radians(angle);

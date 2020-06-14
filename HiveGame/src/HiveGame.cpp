@@ -25,16 +25,16 @@ void HiveGame::Start()
 
 
 	Hive::PlayerController* controller = Hive::PlayerManager::GetInstance().GetPlayerController(0);
-	controller->AddCommand(PlayerControls::jump, new Hive::KeyboardInput(Hive::Action(SDL_SCANCODE_W, Hive::ButtonPressType::OnHold)));
+	controller->AddCommand(PlayerControls::jump, new Hive::KeyboardInput(Hive::Action(SDL_SCANCODE_W, Hive::ButtonPressType::OnPress)));
 	controller->AddCommand(PlayerControls::right, new Hive::KeyboardInput(Hive::Action(SDL_SCANCODE_D, Hive::ButtonPressType::OnHold)));
 	controller->AddCommand(PlayerControls::left, new Hive::KeyboardInput(Hive::Action(SDL_SCANCODE_A, Hive::ButtonPressType::OnHold)));
 	controller->AddCommand(PlayerControls::shoot, new Hive::KeyboardInput(Hive::Action(SDL_SCANCODE_SPACE, Hive::ButtonPressType::OnHold)));
 
 	controller = Hive::PlayerManager::GetInstance().GetPlayerController(1);
-	controller->AddCommand(PlayerControls::jump, new Hive::KeyboardInput(Hive::Action(SDL_SCANCODE_W, Hive::ButtonPressType::OnHold)));
-	controller->AddCommand(PlayerControls::right, new Hive::KeyboardInput(Hive::Action(SDL_SCANCODE_D, Hive::ButtonPressType::OnHold)));
-	controller->AddCommand(PlayerControls::left, new Hive::KeyboardInput(Hive::Action(SDL_SCANCODE_A, Hive::ButtonPressType::OnHold)));
-	controller->AddCommand(PlayerControls::shoot, new Hive::KeyboardInput(Hive::Action(SDL_SCANCODE_SPACE, Hive::ButtonPressType::OnHold)));
+	controller->AddCommand(PlayerControls::jump, new Hive::KeyboardInput(Hive::Action(SDL_SCANCODE_UP, Hive::ButtonPressType::OnPress)));
+	controller->AddCommand(PlayerControls::right, new Hive::KeyboardInput(Hive::Action(SDL_SCANCODE_RIGHT, Hive::ButtonPressType::OnHold)));
+	controller->AddCommand(PlayerControls::left, new Hive::KeyboardInput(Hive::Action(SDL_SCANCODE_LEFT, Hive::ButtonPressType::OnHold)));
+	controller->AddCommand(PlayerControls::shoot, new Hive::KeyboardInput(Hive::Action(SDL_SCANCODE_RSHIFT, Hive::ButtonPressType::OnHold)));
 
 
 

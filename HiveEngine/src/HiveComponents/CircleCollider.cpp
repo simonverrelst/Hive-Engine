@@ -27,7 +27,7 @@ void Hive::CircleCollider::Start()
 	b2CircleShape circleShape{};
 
 	const auto localPos = ToPhysicsSpace(m_LocalPos);
-	const auto radius = m_Radius / Physics::GetInstance().GetPixelPerMeter();
+	const auto radius = m_Radius  / Physics::GetInstance().GetPixelPerMeter();
 
 	circleShape.m_p.Set(localPos.x, localPos.y);
 

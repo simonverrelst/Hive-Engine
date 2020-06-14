@@ -25,8 +25,8 @@ void Hive::Physics::Init(const PhysicsSettings & settings)
 
 	uint32 flags{};
 	flags += b2Draw::e_shapeBit;
-//	flags += b2Draw::e_aabbBit;
-	flags += b2Draw::e_centerOfMassBit;
+	//flags += b2Draw::e_aabbBit;
+	//flags += b2Draw::e_centerOfMassBit;
 
 	m_pPhysicsDebugger->SetFlags(flags);
 

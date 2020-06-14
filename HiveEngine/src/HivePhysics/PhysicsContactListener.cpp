@@ -71,6 +71,8 @@ void Hive::PhysicsContactListener::EndContact(b2Contact* contact)
 	{
 		Collision collisionA{}; // collision for object A
 		collisionA.objHit = static_cast<ColliderComponent*>(BFixture->GetUserData())->gameObject;
+		if (!collisionA.objHit) return;
+		
 		collisionA.contact = contact;
 
 		collisionA.objHit->OnCollisionExit2D(collisionA);
@@ -78,6 +80,8 @@ void Hive::PhysicsContactListener::EndContact(b2Contact* contact)
 		Collision collisionB{}; // collision for object B
 		collisionB.objHit = static_cast<ColliderComponent*>(AFixture->GetUserData())->gameObject;
 		collisionB.contact = contact;
+
+		if (!collisionB.objHit) return;
 
 		collisionB.objHit->OnCollisionExit2D(collisionB);
 	}

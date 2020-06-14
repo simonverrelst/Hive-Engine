@@ -3,10 +3,17 @@
 #include "ActionMappings.h"
 
 
+//enum PlayerAnimations
+//{
+//	walk,
+//	jump,
+//	eat
+//};
 
 namespace Hive
 {
 	class PlayerController;
+	class AnimatedSprite;
 }
 
 class PlayerComponent final : public ControllerComponent
@@ -25,5 +32,8 @@ protected:
 private:
 	
 	Hive::PlayerController * m_pController;
+
+	float m_WalkSpeed = 1500.f;
+	float m_JumpSpeed = 1000.f;
 };
 

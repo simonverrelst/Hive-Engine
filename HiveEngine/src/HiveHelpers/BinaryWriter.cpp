@@ -40,7 +40,7 @@ void Hive::BinaryWriter::CloseFile()
 
 void Hive::BinaryWriter::WriteString(const std::string& string) noexcept
 {
-	unsigned int size = string.size();
+	unsigned int size = static_cast<unsigned int>(string.size());
 	writeStream.write(reinterpret_cast<char*>(&size), sizeof(size));
 	writeStream.write(string.c_str(), size);
 }

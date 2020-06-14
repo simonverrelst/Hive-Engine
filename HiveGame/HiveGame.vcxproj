@@ -111,6 +111,15 @@
     <ProjectReference>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)Resources" "$(TargetDir)Resources" /e /y /i /r
+xcopy "$(SolutionDir)HiveEngine\lib\SDL2\$(PlatformShortname)\*.dll" "$(TargetDir)" /Y
+xcopy "$(SolutionDir)HiveEngine\lib\vld\$(PlatformShortname)\*.*" "$(TargetDir)" /Y</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -136,6 +145,15 @@
     <ProjectReference>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)Resources" "$(TargetDir)Resources" /e /y /i /r
+xcopy "$(SolutionDir)HiveEngine\lib\SDL2\$(PlatformShortname)\*.dll" "$(TargetDir)" /Y
+xcopy "$(SolutionDir)HiveEngine\lib\vld\$(PlatformShortname)\*.*" "$(TargetDir)" /Y</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -159,6 +177,14 @@
     <ProjectReference>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)Resources" "$(TargetDir)Resources" /e /y /i /r
+xcopy "$(SolutionDir)HiveEngine\lib\SDL2\$(PlatformShortname)\*.dll" "$(TargetDir)" /Y</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -182,6 +208,14 @@
     <ProjectReference>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)Resources" "$(TargetDir)Resources" /e /y /i /r
+xcopy "$(SolutionDir)HiveEngine\lib\SDL2\$(PlatformShortname)\*.dll" "$(TargetDir)" /Y</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\PlayerComponent.cpp" />
