@@ -2,6 +2,7 @@
 
 #include "HiveHelpers/Structs.h"
 #include <vector>
+#include <string>
 
 namespace Hive
 {
@@ -29,6 +30,9 @@ namespace Hive
 
 		void OnCollisionEnter2D(const Collision& collision);
 		void OnCollisionExit2D(const Collision& collision);
+
+		void SetTag(const std::string& tag) { m_Tag = tag; }
+		const std::string& GetTag() { return m_Tag; }
 
 
 		GameObject(const GameObject& other) = delete;
@@ -66,6 +70,8 @@ namespace Hive
 		std::vector<Component *> m_Components;
 
 		TransformComponent * m_Transform;
+
+		std::string m_Tag;
 
 		bool m_IsActive{ true };
 

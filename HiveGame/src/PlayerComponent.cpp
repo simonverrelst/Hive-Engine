@@ -16,7 +16,6 @@ void PlayerComponent::Start()
 {
 	ControllerComponent::Start();
 
-	m_WalkSpeed = 1500;
 
 	Hive::AnimationData * walk{new Hive::AnimationData()};
 	walk->startFrame = 0;
@@ -26,6 +25,8 @@ void PlayerComponent::Start()
 	m_pAnimatedSprite->AddAnimation(walk);
 	m_pAnimatedSprite->SetAnimation(0);
 	m_pAnimatedSprite->Play();
+
+	m_pRigidbody->GetBody()->SetLinearDamping(0.3f);
 	
 }
 
@@ -52,7 +53,7 @@ void PlayerComponent::Update()
 	if (input.x < 0) m_pAnimatedSprite->SetFlip(true);
 	if (input.x > 0) m_pAnimatedSprite->SetFlip(false);
 
-	m_pRigidbody->GetBody()->SetLinearDamping(0.3f);
+
 }
 
 void PlayerComponent::FixedUpdate()

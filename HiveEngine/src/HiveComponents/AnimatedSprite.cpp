@@ -36,7 +36,7 @@ void Hive::AnimatedSprite::Start()
 
 void Hive::AnimatedSprite::Update()
 {
-	if (!m_IsPlaying) return;
+	if (!m_IsPlaying && !m_pCurrentAnim) return;
 
 	float elapsedSec = Time::GetInstance().GetElapsedTime();
 

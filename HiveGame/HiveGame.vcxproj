@@ -225,6 +225,7 @@ xcopy "$(SolutionDir)HiveEngine\lib\SDL2\$(PlatformShortname)\*.dll" "$(TargetDi
     <ClCompile Include="src\HiveGame.cpp" />
     <ClCompile Include="src\Observer.cpp" />
     <ClCompile Include="src\TestScene.cpp" />
+    <ClCompile Include="src\ZenChanController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HiveEngine\HiveEngine.vcxproj">
@@ -240,6 +241,7 @@ xcopy "$(SolutionDir)HiveEngine\lib\SDL2\$(PlatformShortname)\*.dll" "$(TargetDi
     <ClInclude Include="src\HiveGame.h" />
     <ClInclude Include="src\Observer.h" />
     <ClInclude Include="src\TestScene.h" />
+    <ClInclude Include="src\ZenChanController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

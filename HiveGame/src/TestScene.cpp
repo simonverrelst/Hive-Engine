@@ -1,17 +1,22 @@
 #include "TestScene.h"
+
 #include <HiveScene/GameObject.h>
+
+#include <HiveRender/Font.h>
 #include <HiveComponents/SpriteComponent.h>
 #include <HiveComponents/TextComponent.h>
-#include <HiveRender/Font.h>
 #include <HiveComponents/TransformComponent.h>
 #include <HiveComponents/RigidBodyComponent.h>
 #include <HiveComponents/BoxCollider.h>
 #include <HiveComponents/CircleCollider.h>
-#include "LevelManager.h"
-#include <HiveInput/InputManager.h>
-#include "PlayerComponent.h"
-#include <HiveInput/PlayerManager.h>
 #include <HiveComponents/AnimatedSprite.h>
+
+#include <HiveInput/InputManager.h>
+#include <HiveInput/PlayerManager.h>
+
+#include "LevelManager.h"
+#include "PlayerComponent.h"
+#include "ZenChanController.h"
 
 
 
@@ -46,28 +51,43 @@ void TestScene::Start()
 	//Add(gameObject);
 
 	auto BubCharacter = new Hive::GameObject();
+	BubCharacter->SetTag("Player");
 
 	BubCharacter->GetTransform()->SetPosition(100, 200);
 	BubCharacter->GetTransform()->SetScale({ 0.5f,0.5f });
 
 	BubCharacter->AddComponent(new Hive::RigidBodyComponent(Hive::RigidBodySettings(b2BodyType::b2_dynamicBody, false, true, 0.75f)));
-	BubCharacter->AddComponent(new Hive::BoxCollider(Hive::ColliderSettings(0.1f,0.01f,false,1.f), {}, {20,20}));
+	BubCharacter->AddComponent(new Hive::BoxCollider(Hive::ColliderSettings(0.f,0.01f,false,1.f), {}, {20,20}));
 	BubCharacter->AddComponent(new Hive::AnimatedSprite("Sprites/heroGreen.png",4,3));
 	BubCharacter->AddComponent(new PlayerComponent(Hive::PlayerManager::GetInstance().GetPlayerController(0)));
 
 	Add(BubCharacter);
 
 	auto BobCharacter = new Hive::GameObject();
+	BobCharacter->SetTag("Player");
 
 	BobCharacter->GetTransform()->SetPosition(500, 200);
 	BobCharacter->GetTransform()->SetScale({ 0.5f,0.5f });
 
 	BobCharacter->AddComponent(new Hive::RigidBodyComponent(Hive::RigidBodySettings(b2BodyType::b2_dynamicBody, false, true, 0.75f)));
-	BobCharacter->AddComponent(new Hive::BoxCollider(Hive::ColliderSettings(0.1f, 0.01f, false, 1.f), {}, { 20,20 }));
+	BobCharacter->AddComponent(new Hive::BoxCollider(Hive::ColliderSettings(0.f, 0.01f, false, 1.f), {}, { 20,20 }));
 	BobCharacter->AddComponent(new Hive::AnimatedSprite("Sprites/heroBlue.png", 4, 3));
 	BobCharacter->AddComponent(new PlayerComponent(Hive::PlayerManager::GetInstance().GetPlayerController(1)));
 
 	Add(BobCharacter);
+
+	auto ZenChan = new Hive::GameObject();
+	ZenChan->SetTag("ZenChan");
+
+	ZenChan->GetTransform()->SetPosition(300, 200);
+	ZenChan->GetTransform()->SetScale({ 0.2f,0.2f });
+
+	ZenChan->AddComponent(new Hive::RigidBodyComponent(Hive::RigidBodySettings(b2BodyType::b2_dynamicBody, false, true, 0.75f)));
+	ZenChan->AddComponent(new Hive::BoxCollider(Hive::ColliderSettings(0.f, 0.01f, false, 1.f), {}, { 40,40 }));
+	ZenChan->AddComponent(new Hive::AnimatedSprite("Sprites/EnemySpriteSheet.png", 12, 8));
+	ZenChan->AddComponent(new ZenChanController(BobCharacter->GetTransform()));
+
+	Add(ZenChan);
 
 	//auto gameObject2 = new Hive::GameObject();
 

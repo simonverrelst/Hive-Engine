@@ -7,6 +7,7 @@ namespace Hive
 {
 	GameObject::GameObject()
 		:m_Transform{}
+		,m_Tag{}
 	{
 		m_Transform = new TransformComponent();
 		AddComponent(m_Transform);

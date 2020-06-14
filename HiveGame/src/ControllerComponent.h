@@ -1,6 +1,7 @@
 #pragma once
 #include "HiveComponents/Component.h"
 #include "HiveComponents/RigidBodyComponent.h"
+#include "HiveHelpers/Structs.h"
 
 #pragma warning( push )
 #pragma warning( disable : 4201)
@@ -19,12 +20,17 @@ class ControllerComponent :
 public:
 	ControllerComponent();
 	virtual ~ControllerComponent();
+
+
+
 protected:
 	virtual void Start() override;
 
 	virtual void Update() override;
 
 	virtual void FixedUpdate() override;
+
+	void OnCollisionEnter2D(const Hive::Collision& collision) override;
 
 	Hive::RigidBodyComponent* m_pRigidbody;
 

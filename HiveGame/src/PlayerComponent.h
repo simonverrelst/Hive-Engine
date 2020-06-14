@@ -33,7 +33,7 @@ private:
 	
 	Hive::PlayerController * m_pController;
 
-	float m_WalkSpeed = 1500.f;
-	float m_JumpSpeed = 1000.f;
+	float m_WalkSpeed = 10000.f;
+	float m_JumpSpeed = 1200.f;
 };
 

@@ -14,6 +14,12 @@ ControllerComponent::~ControllerComponent()
 
 }
 
+void ControllerComponent::OnCollisionEnter2D(const Hive::Collision& collision)
+{
+	UNREFERENCED_PARAMETER(collision);
+
+}
+
 void ControllerComponent::Start()
 {
 	m_pRigidbody = gameObject->GetComponent<Hive::RigidBodyComponent>();

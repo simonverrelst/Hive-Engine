@@ -11,7 +11,7 @@ enum GameEvent
 
 class GameObject;
 
-class Observer
+class Observer 
 {
 public:
 	virtual ~Observer() {}
