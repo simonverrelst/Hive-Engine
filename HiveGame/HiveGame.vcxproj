@@ -100,6 +100,8 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <AdditionalIncludeDirectories>$(SolutionDir)/HiveEngine/include;$(SolutionDir)HiveEngine/src;</AdditionalIncludeDirectories>
       <LanguageStandard>Default</LanguageStandard>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,6 +122,8 @@
       <AdditionalIncludeDirectories>$(SolutionDir)/HiveEngine/include;$(SolutionDir)HiveEngine/src;</AdditionalIncludeDirectories>
       <BrowseInformation>true</BrowseInformation>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -183,6 +187,7 @@
     <ClCompile Include="src\LevelSpriteComponent.cpp" />
     <ClCompile Include="src\LevelManager.cpp" />
     <ClCompile Include="src\HiveGame.cpp" />
+    <ClCompile Include="src\Observer.cpp" />
     <ClCompile Include="src\TestScene.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +199,7 @@
     <ClInclude Include="src\LevelSpriteComponent.h" />
     <ClInclude Include="src\LevelManager.h" />
     <ClInclude Include="src\HiveGame.h" />
+    <ClInclude Include="src\Observer.h" />
     <ClInclude Include="src\TestScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

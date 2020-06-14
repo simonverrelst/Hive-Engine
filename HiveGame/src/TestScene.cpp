@@ -40,9 +40,6 @@ void TestScene::Start()
 	Add(gameObject);
 
 
-	
-
-
 	auto gameObject3 = new Hive::GameObject();
 
 	gameObject3->GetTransform()->SetPosition(0, 600);
@@ -71,6 +68,12 @@ void TestScene::Update()
 {
 
 	if (Hive::InputManager::GetInstance().IsKeyPressed(SDL_SCANCODE_F)) m_pLevelManager->NextLevel();
+	if (Hive::InputManager::GetInstance().IsKeyDown(SDL_SCANCODE_G)) m_pLevelManager->NextLevel();
+	if (Hive::InputManager::GetInstance().IsKeyReleased(SDL_SCANCODE_H)) m_pLevelManager->NextLevel();
+
+	if (Hive::InputManager::GetInstance().IsMouseButtonDown(Hive::left)) m_pLevelManager->NextLevel();
+	if (Hive::InputManager::GetInstance().IsMouseButtonPressed(Hive::right)) m_pLevelManager->NextLevel();
+	if (Hive::InputManager::GetInstance().IsMouseButtonReleased(Hive::middle)) m_pLevelManager->NextLevel();
 }
 
 void TestScene::Render() const

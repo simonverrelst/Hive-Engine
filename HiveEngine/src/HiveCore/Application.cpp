@@ -23,6 +23,7 @@ namespace Hive {
 	{
 		Time::GetInstance().Init();
 		Physics::GetInstance().Init(PhysicsSettings());
+		InputManager::GetInstance().Init();
 	}
 
 	void Application::Run()
@@ -53,11 +54,13 @@ namespace Hive {
 		{
 			Time::GetInstance().Update();
 
-			HandleEvent();
+			HandleInput();
 
 			InternalUpdate();
 
 			InternalPhysicsUpdate();
+
+			InternalLateUpdate();
 
 			InternalRender();
 
@@ -77,7 +80,7 @@ namespace Hive {
 		m_Window = nullptr;
 		SDL_Quit();
 	}
-	void Application::HandleEvent()
+	void Application::HandleInput()
 	{
 		SDL_Event event;
 		SDL_PollEvent(&event);
@@ -87,6 +90,8 @@ namespace Hive {
 			EngineRunning = false;
 			break;
 		}
+
+		InputManager::GetInstance().Update();
 	}
 
 	void Application::InternalUpdate()
@@ -118,9 +123,13 @@ namespace Hive {
 
 			Physics::GetInstance().Step();
 
-			
-
+		
 			Time::GetInstance().m_FrameTimeCounter -= fixedStep;
 		}
+	}
+
+	void Application::InternalLateUpdate()
+	{
+		InputManager::GetInstance().UpdatePreviousState();
 	}
 }

@@ -18,13 +18,14 @@ namespace Hive {
 
 		void Run();
 
-		void HandleEvent();
+		void HandleInput();
 
 
 	protected:
 		void InternalUpdate();
 		void InternalRender();
 		void InternalPhysicsUpdate();
+		void InternalLateUpdate();
 
 		bool EngineRunning;
 		SDL_Window* m_Window;
