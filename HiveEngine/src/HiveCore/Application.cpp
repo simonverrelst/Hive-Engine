@@ -64,12 +64,6 @@ namespace Hive {
 
 			InternalRender();
 
-		#ifdef _DEBUG
-			Physics::GetInstance().DebugRender();
-			SDL_RenderPresent(Renderer::GetInstance().GetSDLRenderer());
-		#endif // _DEBUG
-
-
 		}
 
 		Renderer::GetInstance().Destroy();
@@ -102,9 +96,17 @@ namespace Hive {
 	}
 	void Application::InternalRender()
 	{
-		Renderer::GetInstance().Render();
+		Renderer::GetInstance().RenderStart();
+
+		SceneManager::GetInstance().Render();
 
 		Render();
+
+#ifdef _DEBUG
+		Physics::GetInstance().DebugRender();
+#endif // _DEBUG
+
+		Renderer::GetInstance().RenderEnd();
 	}
 
 	void Application::InternalPhysicsUpdate()

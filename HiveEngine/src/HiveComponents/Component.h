@@ -28,12 +28,13 @@ namespace Hive
 		virtual void OnDisable();
 
 		void SetActive(bool state);
+		bool IsActive() { return m_IsActive; }
 	
 		GameObject* gameObject = nullptr;
 	private:
 		
 
-		bool IsActive() { return m_IsActive; }
+
 		bool m_IsActive{ true };
 		
 	

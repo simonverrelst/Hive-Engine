@@ -36,6 +36,8 @@ namespace Hive
 
 		b2Fixture* GetCollisionShape() const { return m_pFixture; }
 
+
+
 	protected:
 
 		b2Fixture* m_pFixture = nullptr;

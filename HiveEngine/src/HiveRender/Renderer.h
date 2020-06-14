@@ -17,8 +17,11 @@ namespace Hive
 	{
 	public:
 		void Init(SDL_Window * window);
-		void Render() const;
 		void Destroy();
+
+		void RenderStart() const;
+
+		void RenderEnd() const;
 
 		void RenderTexture(Texture2D * texture, const glm::vec2 & pos, const glm::vec2 & scale, float rotation) const;
 		void RenderTexture(const AnimationData& animData, const glm::vec2& pos, const glm::vec2& scale, float rotation) const;

@@ -20,6 +20,9 @@
 #include "HiveScene/GameObject.h"
 
 #include "HiveInput/InputManager.h"
+#include "HiveInput/PlayerInput.h"
+#include "HiveInput/PlayerManager.h"
+
 
 #include "HiveRender/Renderer.h"
 #include "HiveRender/Font.h"
@@ -31,6 +34,7 @@
 #include "HiveComponents/SpriteComponent.h"
 #include "HiveComponents/ColliderComponent.h"
 #include "HiveComponents/BoxCollider.h"
+
 
 
 

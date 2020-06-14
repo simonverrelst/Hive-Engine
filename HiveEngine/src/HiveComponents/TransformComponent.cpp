@@ -1,5 +1,6 @@
 #include "HivePCH.h"
 #include "TransformComponent.h"
+#include "RigidBodyComponent.h"
 
 namespace Hive
 {
@@ -8,22 +9,19 @@ namespace Hive
 	{
 	}
 
-	void TransformComponent::Start()
-	{
-	}
-
-	void TransformComponent::Update()
-	{
-	}
-
-	void TransformComponent::Render()
-	{
-	}
-
 	void TransformComponent::SetPosition(float x, float y)
 	{
+
+
+		RigidBodyComponent* pRb = gameObject->GetComponent<RigidBodyComponent>();
+		if (pRb && !pRb->IsInFixedUpdate())
+		{
+			pRb->Translate(m_Position);
+		}
+
 		m_Position.x = x;
 		m_Position.y = y;
+
 	}
 
 	void TransformComponent::SetPosition(const glm::vec2& position)

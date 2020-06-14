@@ -17,16 +17,6 @@ void Hive::Renderer::Init(SDL_Window* window)
 	SDL_SetRenderDrawColor(m_Renderer, 50, 50, 50, 255);
 }
 
-void Hive::Renderer::Render() const
-{
-	SDL_RenderClear(m_Renderer);
-	SDL_SetRenderDrawColor(m_Renderer, 0, 0, 0, 1);
-
-	SceneManager::GetInstance().Render();
-
-	SDL_RenderPresent(m_Renderer);
-}
-
 void Hive::Renderer::Destroy()
 {
 	if (m_Renderer != nullptr)
@@ -51,8 +41,8 @@ void Hive::Renderer::RenderTexture(Texture2D* texture, const glm::vec2& pos, con
 void Hive::Renderer::RenderTexture(const AnimationData &animData, const glm::vec2& pos, const glm::vec2& scale, float rotation) const
 {
 	SDL_Rect src;
-	src.x = static_cast<int>((animData.frameNumber % animData.frameNrCollums) * animData.frameWidth * scale.x);
-	src.y = static_cast<int>((animData.frameNumber / animData.frameNrRows) * animData.frameHeight * scale.y);
+	src.x = static_cast<int>((animData.frameNumber % animData.frameNrCollums) * animData.frameWidth );
+	src.y = static_cast<int>((animData.frameNumber / animData.frameNrRows) * animData.frameHeight );
 	src.w = animData.frameWidth;
 	src.h = animData.frameWidth;
 
@@ -76,7 +66,7 @@ void Hive::Renderer::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, cons
 	SDL_SetRenderDrawColor(m_Renderer, uint8(color.r * 255), uint8(color.b * 255), uint8(color.g * 255), uint8(color.a * 255));
 	
 	std::vector<SDL_Point> points{};
-	points.resize(vertexCount);
+	points.resize(vertexCount+1);
 
 	for (int i = 0; i < vertexCount; i++)
 	{
@@ -84,6 +74,7 @@ void Hive::Renderer::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, cons
 		points[i].x  = int(pos.x);
 		points[i].y = int(pos.y);
 	}
+
 
 	SDL_RenderDrawLines(m_Renderer, points.data(), vertexCount);
 
@@ -125,8 +116,8 @@ void Hive::Renderer::DrawTransform(const b2Transform& xf)
 	
 
 	glm::vec2 origin = ToPixelSpace(xf.p);
-	glm::vec2 xAxis = ToPixelSpace({ xf.p.x + xf.q.GetXAxis().y,xf.p.y + xf.q.GetXAxis().y });
-	glm::vec2 yAxis = ToPixelSpace({ xf.p.x + xf.q.GetYAxis().y,xf.p.y + xf.q.GetYAxis().y });
+	glm::vec2 xAxis = ToPixelSpace({ xf.p.x + xf.q.GetXAxis().x,xf.p.y + xf.q.GetXAxis().y });
+	glm::vec2 yAxis = ToPixelSpace({ xf.p.x + xf.q.GetYAxis().x,xf.p.y + xf.q.GetYAxis().y });
 
 	SDL_SetRenderDrawColor(m_Renderer, 255, 0, 0, 255);
 	SDL_RenderDrawLine(m_Renderer, int(origin.x), int(origin.y), int(xAxis.x), int(xAxis.y));
@@ -143,4 +134,16 @@ void Hive::Renderer::DrawPoint(const b2Vec2& p, float size, const b2Color& color
 
 	SDL_SetRenderDrawColor(m_Renderer, uint8(color.r * 255.f), uint8(color.b * 255.f), uint8(color.g * 255.f), uint8(color.a * 255.f));
 	SDL_RenderDrawPoint(m_Renderer, int(point.x), int(point.y));
+}
+
+void Hive::Renderer::RenderStart() const
+{
+	SDL_SetRenderDrawColor(m_Renderer, 0, 0, 0, 1);
+	SDL_RenderClear(m_Renderer);
+
+}
+
+void Hive::Renderer::RenderEnd() const
+{
+	SDL_RenderPresent(m_Renderer);
 }

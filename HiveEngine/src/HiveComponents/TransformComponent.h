@@ -9,6 +9,13 @@
 
 namespace Hive
 {
+	enum TransformState
+	{
+		translating,
+		rotated,
+		simulated,
+	};
+
 	class  TransformComponent final :
 		public Component
 	{
@@ -16,9 +23,6 @@ namespace Hive
 		TransformComponent() = default;
 		virtual ~TransformComponent();
 
-		virtual void Start() override;
-		virtual void Update() override;
-		virtual void Render() override;
 
 		glm::vec2 GetPosition() const { return m_Position; }
 		float GetRotation() const { return m_Rotation; }

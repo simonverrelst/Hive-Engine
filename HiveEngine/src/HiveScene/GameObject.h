@@ -1,10 +1,13 @@
 #pragma once
 
 #include "HiveHelpers/Structs.h"
+#include <vector>
 
 namespace Hive
 {
-	
+
+
+
 	class Component;
 	class TransformComponent;
 	class Scene;

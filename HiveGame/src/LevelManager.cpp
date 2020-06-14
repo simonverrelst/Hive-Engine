@@ -2,6 +2,8 @@
 #include "HiveScene/Scene.h"
 #include "HiveScene/GameObject.h"
 #include "HiveComponents/TransformComponent.h"
+#include "HiveComponents/BoxCollider.h"
+#include "HiveComponents/RigidBodyComponent.h"
 #include "LevelSpriteComponent.h"
 
 
@@ -34,6 +36,8 @@ void LevelManager::Start()
 		m_Enviroment[i] = object;
 
 		object->AddComponent(new LevelSpriteComponent("Sprites/Blocks.png"));
+		object->AddComponent(new Hive::RigidBodyComponent(Hive::RigidBodySettings(b2_staticBody)));
+		object->AddComponent(new Hive::BoxCollider(Hive::ColliderSettings(), {10.f,10.f}, { 0.1f,0.1f }));
 
 	}
 

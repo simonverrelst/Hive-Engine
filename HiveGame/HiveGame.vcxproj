@@ -184,6 +184,8 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\PlayerComponent.cpp" />
+    <ClCompile Include="src\ControllerComponent.cpp" />
     <ClCompile Include="src\LevelSpriteComponent.cpp" />
     <ClCompile Include="src\LevelManager.cpp" />
     <ClCompile Include="src\HiveGame.cpp" />
@@ -196,6 +198,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ActionMappings.h" />
+    <ClInclude Include="src\PlayerComponent.h" />
+    <ClInclude Include="src\ControllerComponent.h" />
     <ClInclude Include="src\LevelSpriteComponent.h" />
     <ClInclude Include="src\LevelManager.h" />
     <ClInclude Include="src\HiveGame.h" />

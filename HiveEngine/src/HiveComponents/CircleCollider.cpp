@@ -36,7 +36,7 @@ void Hive::CircleCollider::Start()
 	colliderDef.density = m_ColliderSettings.m_Density;
 	colliderDef.restitution = m_ColliderSettings.m_Restitution;
 	colliderDef.isSensor = m_ColliderSettings.m_IsTrigger;
-	colliderDef.userData = gameObject;
+	colliderDef.userData = this;
 
 
 	m_pFixture = pRb->GetBody()->CreateFixture(&colliderDef);
