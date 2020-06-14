@@ -23,7 +23,7 @@ LevelSpriteComponent::LevelSpriteComponent(const std::string& filePath)
 	m_AnimationData.frameNrRows = 10;
 	m_AnimationData.frameWidth = int(m_pTexture->GetWidth() / m_AnimationData.frameNrCollums);
 	m_AnimationData.frameHeight = int(m_pTexture->GetHeight() / m_AnimationData.frameNrRows);
-	m_AnimationData.frameNumber = m_CurrentLevelIndex;
+	m_AnimationData.currentFrameNumber = m_CurrentLevelIndex;
 
 }
 
@@ -39,7 +39,8 @@ LevelSpriteComponent::~LevelSpriteComponent()
 
 void LevelSpriteComponent::Render()
 {
-	const glm::vec2 position = gameObject->GetTransform()->GetPosition();
+	glm::vec2 position = gameObject->GetTransform()->GetPosition();
+	position -= glm::vec2{ m_AnimationData.frameWidth,m_AnimationData.frameHeight };
 	const float rotation = gameObject->GetTransform()->GetRotation();
 	const glm::vec2 scale = gameObject->GetTransform()->GetScale();
 
@@ -48,5 +49,5 @@ void LevelSpriteComponent::Render()
 
 void LevelSpriteComponent::Update()
 {
-	m_AnimationData.frameNumber = m_CurrentLevelIndex;
+	m_AnimationData.currentFrameNumber = m_CurrentLevelIndex;
 }

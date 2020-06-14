@@ -41,8 +41,8 @@ void Hive::Renderer::RenderTexture(Texture2D* texture, const glm::vec2& pos, con
 void Hive::Renderer::RenderTexture(const AnimationData &animData, const glm::vec2& pos, const glm::vec2& scale, float rotation) const
 {
 	SDL_Rect src;
-	src.x = static_cast<int>((animData.frameNumber % animData.frameNrCollums) * animData.frameWidth );
-	src.y = static_cast<int>((animData.frameNumber / animData.frameNrRows) * animData.frameHeight );
+	src.x = static_cast<int>((animData.currentFrameNumber % animData.frameNrCollums) * animData.frameWidth );
+	src.y = static_cast<int>((animData.currentFrameNumber / animData.frameNrRows) * animData.frameHeight );
 	src.w = animData.frameWidth;
 	src.h = animData.frameWidth;
 
@@ -54,7 +54,7 @@ void Hive::Renderer::RenderTexture(const AnimationData &animData, const glm::vec
 
 	SDL_Point center{};
 	center.x = static_cast<int>((animData.frameWidth * scale.x) / 2.f);
-	center.y = static_cast<int>((animData.frameHeight * scale.y )/ 2.f);
+	center.y = static_cast<int>((animData.frameHeight * scale.y ) / 2.f);
 		
 
 	SDL_RenderCopyEx(m_Renderer, animData.texture->GetSDLTexture(), &src, &dst, ToEuler(rotation), &center, SDL_RendererFlip::SDL_FLIP_NONE);
@@ -118,6 +118,8 @@ void Hive::Renderer::DrawTransform(const b2Transform& xf)
 	glm::vec2 origin = ToPixelSpace(xf.p);
 	glm::vec2 xAxis = ToPixelSpace({ xf.p.x + xf.q.GetXAxis().x,xf.p.y + xf.q.GetXAxis().y });
 	glm::vec2 yAxis = ToPixelSpace({ xf.p.x + xf.q.GetYAxis().x,xf.p.y + xf.q.GetYAxis().y });
+
+
 
 	SDL_SetRenderDrawColor(m_Renderer, 255, 0, 0, 255);
 	SDL_RenderDrawLine(m_Renderer, int(origin.x), int(origin.y), int(xAxis.x), int(xAxis.y));

@@ -47,9 +47,17 @@ namespace Hive
 		Hive::Texture2D* texture;
 		int frameWidth;
 		int frameHeight;
+
 		int frameNrCollums;
 		int frameNrRows;
-		int frameNumber;
+		int currentFrameNumber;
+
+		float frameTime;
+		float accumelatedSec;
+
+		int startFrame;
+		int endFrame;
+
 	};
 }
 

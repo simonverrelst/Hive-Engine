@@ -114,6 +114,9 @@
     <ClInclude Include="src\HiveInput\PlayerManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\HiveComponents\AnimatedSprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\HiveCore\Application.cpp">
@@ -195,6 +198,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\HiveInput\PlayerManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HiveComponents\AnimatedSprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

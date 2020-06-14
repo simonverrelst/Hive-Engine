@@ -37,7 +37,7 @@ void LevelManager::Start()
 
 		object->AddComponent(new LevelSpriteComponent("Sprites/Blocks.png"));
 		object->AddComponent(new Hive::RigidBodyComponent(Hive::RigidBodySettings(b2_staticBody)));
-		object->AddComponent(new Hive::BoxCollider(Hive::ColliderSettings(), {10.f,10.f}, { 0.1f,0.1f }));
+		object->AddComponent(new Hive::BoxCollider(Hive::ColliderSettings(), {0.f,0.f}, { 0.1f,0.1f }));
 
 	}
 

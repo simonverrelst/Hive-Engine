@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\HiveComponents\AnimatedSprite.h" />
     <ClInclude Include="src\HiveInput\PlayerManager.h" />
     <ClInclude Include="src\HiveInput\PlayerInput.h" />
     <ClInclude Include="src\HiveComponents\EdgeCollider.h" />
@@ -54,6 +55,7 @@
     <ClInclude Include="src\HiveScene\SceneManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\HiveComponents\AnimatedSprite.cpp" />
     <ClCompile Include="src\HiveInput\PlayerManager.cpp" />
     <ClCompile Include="src\HiveInput\PlayerInput.cpp" />
     <ClCompile Include="src\HiveComponents\EdgeCollider.cpp" />
