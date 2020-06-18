@@ -2,7 +2,7 @@
 2D C++ Game Engine
 
 DESIGN PATTERNS
-- COmponent system
+- Component system
 - Game loop
 - Command systems for configurable input
 
