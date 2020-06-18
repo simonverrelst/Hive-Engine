@@ -10,6 +10,7 @@ LIBS
 - SDL Liberaries as media layer
 - box2d as physics engine
 - spdlog
+- visual leak detector
 
 DEMO GAME 
 -Bubble bobble (not finished)
